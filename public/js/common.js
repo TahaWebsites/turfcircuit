@@ -15,9 +15,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Apply colors from localStorage
   applyThemeColors();
-
-  document.querySelectorAll('.developerInfo p')[[5].innerHtml = "<a href=`https://appsgeyser.io/18604476/TurfCircuit?_ga=2.170695456.1690638858.1740046197-1226163925.1740046197` style="text-decoration: underline;">Download</a> our app for smoother experience (Android
-                only)";
 });
 
 function applyThemeColors() {
