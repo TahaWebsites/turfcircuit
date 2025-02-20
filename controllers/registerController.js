@@ -76,7 +76,7 @@ router.post('/signup', (req, res) => {
             newUser.save()
                 .then(() => {
                     // Successfully saved the user
-                    return res.render('resignup', {error: 'User Successfully Registered'});
+                    return res.redirect('/login');
                 })
                 .catch(err => {
                     // Log the error to understand what's going wrong
