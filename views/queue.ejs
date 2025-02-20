@@ -302,7 +302,16 @@
 
   <script src="/js/nav.js"></script>
   <script src="/js/common.js"></script>
-  <script>
+<script>
+
+  if (!window.lordIconLoaded) {
+    let script = document.createElement('script');
+    script.src = "https://cdn.lordicon.com/lordicon.js";
+    document.body.appendChild(script);
+    window.lordIconLoaded = true;
+  }
+
+
     document.querySelector('.joingameBTN').addEventListener('click', (e) => {
       e.preventDefault();
       if (document.querySelector('#playerContact').value.length != 10) {
