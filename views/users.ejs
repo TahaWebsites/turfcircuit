@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.lordicon.com/lordicon.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/style/rootcss.css" />
+    <link rel="stylesheet" href="/style/userProfile.css" />
+    <title>TurfCircuit | User Dashboard</title>
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="burger">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+
+        <h2 class="title">
+            <lord-icon src="https://cdn.lordicon.com/bjxtqill.json" trigger="hover"
+                colors="primary:#08a88a,secondary:#08a88a" style="width:50px;height:50px">
+            </lord-icon>Turf<span class="#08a88a">Circuit</span>
+        </h2>
+
+        <ul class="navlinks">
+            <a href="#" class="cross">
+                <li class="cross">X</li>
+            </a>
+            <a href="/index">
+                <li>Home</li>
+            </a>
+            <a href="/queue" target="_blank">
+                <li>Match Queues</li>
+            </a>
+            <!-- <a href="#"><li>Tournament</li></a> -->
+            <a href="/gallery">
+                <li>Gallery</li>
+            </a>
+            <a href="/aboutus">
+                <li>About US</li>
+            </a>
+            <a href="/contactUs">
+                <li>Contact US</li>
+            </a>
+            <a href="/logout" class="logoutMobile" target="_blank">
+                <li>Log Out</li>
+            </a>
+            <!-- <li><%= currentUser ? 'My Profile' : 'Login/Signup' %></li> -->
+            <li class="profileIcon" style="display: flex; justify-content: center; align-items: center;">
+                <lord-icon src="https://cdn.lordicon.com/kdduutaw.json" trigger="hover"
+                    colors="primary:#08a88a,secondary:#08a88a" style="width:40px;height:40px"></lord-icon>
+                <div class="profileMenu">
+                    <ul>
+                        <li><a href="/profile">
+                                <%= currentUser ? 'My Profile' : 'Login/Signup' %>
+                            </a></li>
+                        <li><a href="/players">Players</a></li>
+                        <% if(currentUser) { %>
+                            <li><a href="/logout" class="logout-link">Log Out</a></li>
+                            <% } %>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="mainWrapper">
+        <div class="weekPlayersContainer">
+            <div class="weekPlayers">
+                <div class="playerMonth playerMonth1">
+                    <img src="https://secure.cache.images.core.optasports.com/soccer/players/150x150/326.png" alt="" />
+                    <p class="playerName">Umair</p>
+                    <p>Defender of the Month</p>
+                    <p class="playerTag">The Wall</p>
+                </div>
+                <div class="playerMonth playerMonth2">
+                    <img src="https://b.fssta.com/uploads/application/soccer/headshots/711.vresize.350.350.medium.24.png"
+                        alt="" />
+                    <p class="playerName">Hammad</p>
+                    <p>Winger of the Month</p>
+                    <p class="playerTag">The Ankle Bully</p>
+                </div>
+                <div class="playerMonth playerMonth3">
+                    <img src="https://i.namu.wiki/i/_rbsCc402rWGGvVXBZ3f55OrnkhTfFabpQAsHcYvp0D42g33VgIXZmaEySswIvdjC_2i5OhNsw-IbyQI4Yw-iA.webp"
+                        alt="" />
+                    <p class="playerName">Masood</p>
+                    <p>All Rounder</p>
+                    <p class="playerTag">Rising Star</p>
+                </div>
+                <div class="playerMonth playerMonth4">
+                    <img src="https://static.vecteezy.com/system/resources/previews/046/462/616/non_2x/smiling-soccer-player-holding-a-soccer-ball-on-transparent-background-png.png"
+                        alt="" />
+                    <p class="playerName">Labeeb</p>
+                    <p>Midfielder of the Month</p>
+                    <p class="playerTag">The PlayMaker</p>
+                </div>
+                <div class="playerMonth playerMonth5">
+                    <img src="https://b.fssta.com/uploads/application/soccer/headshots/2257.vresize.350.350.medium.83.png"
+                        alt="" />
+                    <p class="playerName">Baseeh</p>
+                    <p>Keeper of the Month</p>
+                    <p class="playerTag">The Four Handed Keeper</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="search">
+            <input type="text" name="searchProfile" id="searchProfile"
+                placeholder="Filter by Name, Player Tag and Favourite Club" autocomplete="off">
+        </div>
+        <div class="profilesContainer">
+            <% db.forEach(profile=> { %>
+                <a href="/players/<%= profile.name %>">
+                    <div class="profile">
+                        <img src="" alt="">
+                        <div class="profileDetails">
+                            <div class="profileDetailsinner">
+                                <p>Name:</p>
+                                <p>
+                                    <%= profile.name %>
+                                </p>
+                            </div>
+                            <div class="profileDetailsinner">
+                                <p>Player Tag:</p>
+                                <p>
+                                    <%= profile.playerTag %>
+                                </p>
+                            </div>
+                            <div class="profileDetailsinner">
+                                <p>Gender:</p>
+                                <p>
+                                    <%= profile.gender %>
+                                </p>
+                            </div>
+                            <div class="profileDetailsinner">
+                                <p>Favourite Club:</p>
+                                <p>
+                                    <%= profile.favClub %>
+                                </p>
+                            </div>
+                            <div class="profileDetailsinner">
+                                <p>Jersey Number:</p>
+                                <p>
+                                    <%= profile.preferredJerseyNumber %>
+                                </p>
+                            </div>
+                            <div class="profileDetailsinner">
+                                <p>Rating:</p>
+                                <p>
+                                    <%= profile.playerStats.rating %>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <% }) %>
+        </div>
+        <div class="matchNotFound">
+            No Player Found
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="footerLeft">
+            <lord-icon src="https://cdn.lordicon.com/bjxtqill.json" colors="primary:#08a88a,secondary:#08a88a"
+                trigger="hover" style="width:50px;height:50px">
+            </lord-icon>
+            <h3> TurfCircuit</h3>
+        </div>
+        <div class="footerRight">
+            <!-- <div class="extrasFooter">
+              <ul>
+                <li>Refund Policy</li>
+                <li>FAQs</li>
+                <li>Contact US</li>
+                <li>About US</li>
+              </ul>
+            </div>
+            <div class="socials">
+              <ul>
+                <li><a href="https://www.facebook.com">Facebook</a></li>
+                <li><a href="https://www.instagram.com">Instagram</a></li>
+                <li><a href="https://www.github.com">Github</a></li>
+                <li><a href="https://www.whatsapp.com">Whatsapp</a></li>
+              </ul>
+            </div> -->
+
+            <div class="footerdet"><lord-icon class="lord-icon" src="https://cdn.lordicon.com/onmwuuox.json"
+                    trigger="hover" stroke="bold" colors="primary:#08a88a,secondary:#08a88a"
+                    style="width:30px;height:30px">
+                </lord-icon>
+                <p>Mehdipatnam, Hyderabad, India</p>
+            </div>
+            <div class="footerdet">
+                <lord-icon class="lord-icon" src="https://cdn.lordicon.com/vpbspaec.json" trigger="hover" stroke="bold"
+                    colors="primary:#08a88a,secondary:#08a88a" style="width:30px;height:30px">
+                </lord-icon>
+                <p>masoodakataha@gmail.com</p>
+            </div>
+            <div class="footerdet">
+                <lord-icon class="lord-icon" src="https://cdn.lordicon.com/kdduutaw.json" trigger="hover"
+                    colors="primary:#08a88a,secondary:#08a88a" stroke="bold" colors="primary:#08a88a,secondary:#08a88a"
+                    style="width:30px;height:30px">
+                </lord-icon>
+                <p>+91 - 9381354038</p>
+            </div>
+            <div class="footerdet floordetSocials">
+                <a href="http://www.facebook.com">
+                    <lord-icon class="lord-iconSocials" src="https://cdn.lordicon.com/bfoumeno.json" trigger="hover"
+                        stroke="bold" colors="primary:#08a88a,secondary:#08a88a" style="width:30px;height:30px">
+                    </lord-icon>
+                </a>
+                <a href="http://www.instagram.com">
+                    <lord-icon class="lord-iconSocials" src="https://cdn.lordicon.com/tgyvxauj.json" trigger="hover"
+                        stroke="bold" colors="primary:#08a88a,secondary:#08a88a" style="width:30px;height:30px">
+                    </lord-icon>
+                </a>
+                <a href="http://www.twitter.com">
+                    <lord-icon class="lord-iconSocials" src="https://cdn.lordicon.com/yizwahhw.json" trigger="hover"
+                        stroke="bold" colors="primary:#08a88a,secondary:#08a88a" style="width:30px;height:30px">
+                    </lord-icon>
+                </a>
+                <a href="http://chat.whatsapp.com/LnegVafPerO560ZiW65rSW">
+                    <lord-icon class="lord-iconSocials" src="https://cdn.lordicon.com/dnphlhar.json" trigger="hover"
+                        stroke="bold" colors="primary:#08a88a,secondary:#08a88a" style="width:30px;height:30px">
+                    </lord-icon>
+                </a>
+                <a href="http://www.github.com">
+                    <lord-icon class="lord-iconSocials" src="https://cdn.lordicon.com/yvjimpju.json" trigger="hover"
+                        stroke="bold" colors="primary:#08a88a,secondary:#08a88a" style="width:30px;height:30px">
+                    </lord-icon>
+                </a>
+            </div>
+
+
+        </div>
+        <div class="mapFooter">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3807.3490648085153!2d78.4305894744685!3d17.395028083493436!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb97230b9f66fd%3A0xee0a1cdef20c04bf!2sCrank%20gym!5e0!3m2!1sen!2sin!4v1698232238080!5m2!1sen!2sin"
+                width="600" height="450" style="border: 0" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
+
+
+    <div class="devInfoParentDiv">
+        <div class="developerInfo">
+            <p>Developed by Mohammed Masooduddin Siddiqui</p>
+            <p>© 2025 All Rights Reserved</p>
+            <p>mailto: <a href="mailto:masoodakataha@gmail.com" target="_blank">masoodakataha@gmail.com</a></p>
+            <p><a href="https://www.linkedin.com/in/masood059" target="_blank">Follow me on LinkedIn</a></p>
+            <p>Version: 1.0.0.0</p>
+            <p><a href="#" style="text-decoration: underline;">Download</a> our app for smoother experience (Android
+                only)</p>
+            <p>Built using Node.js, Express, Mongodb, Ejs.</p>
+            <a class="devInfoExit">Exit</a>
+        </div>
+    </div>
+
+
+    <div class="Copyright">
+        © Copyright • TurfCircuit • 2025 • <lord-icon src="https://cdn.lordicon.com/ailnzwyn.json" trigger="hover"
+            style="width:30px;height:30px"></lord-icon> • (Click for more details)
+        </lord-icon>
+    </div>
+
+    <script>
+        let uclProfiles = ["https://img.uefa.com/imgml/TP/players/1/2025/cutoff/250052469.webp",
+            "https://img.uefa.com/imgml/TP/players/1/2025/cutoff/250121533.webp",
+            "https://img.uefa.com/imgml/TP/players/1/2025/cutoff/74699.webp",
+            "https://img.uefa.com/imgml/TP/players/1/2025/cutoff/250176450.webp",
+            "https://img.uefa.com/imgml/TP/players/1/2025/cutoff/250080471.webp",
+            "https://img.uefa.com/imgml/TP/players/1/2025/cutoff/250076574.webp",
+            "https://img.uefa.com/imgml/TP/players/1/2025/cutoff/250172668.webp",
+            "https://img.uefa.com/imgml/TP/players/1/2025/cutoff/250121965.webp",
+            "https://img.uefa.com/imgml/TP/players/1/2025/cutoff/250073809.webp",
+            "https://img.uefa.com/imgml/TP/players/1/2025/cutoff/250128377.webp",
+            "https://img.uefa.com/imgml/TP/players/1/2025/cutoff/250147342.webp",
+            "https://img.uefa.com/imgml/TP/players/1/2025/cutoff/250106939.webp",
+            "https://img.uefa.com/imgml/TP/players/1/2025/cutoff/250169705.webp",
+            "https://img.uefa.com/imgml/TP/players/1/2025/cutoff/250128270.webp",
+            "https://img.uefa.com/imgml/TP/players/1/2025/cutoff/250101696.webp",
+            "https://img.uefa.com/imgml/TP/players/1/2025/cutoff/250156002.webp",
+            "https://img.uefa.com/imgml/TP/players/1/2025/cutoff/250061507.webp",
+            "https://img.uefa.com/imgml/TP/players/1/2025/cutoff/250027008.webp",
+            "https://img.uefa.com/imgml/TP/players/1/2025/cutoff/250103561.webp",
+            "https://img.uefa.com/imgml/TP/players/1/2025/cutoff/250171278.webp",
+            "https://img.uefa.com/imgml/TP/players/1/2025/cutoff/250056189.webp"
+        ]
+        document.querySelectorAll('.profile img').forEach(userCard => {
+            let randomNumber = Math.floor(Math.random() * uclProfiles.length);
+            userCard.setAttribute('src', uclProfiles[randomNumber]);
+        });
+    </script>
+    <script src="/js/nav.js"></script>
+    <script src="/js/userProfile.js"></script>
+    <!-- <script src="/js/common.js"></script> -->
+
+</body>
+
+</html>

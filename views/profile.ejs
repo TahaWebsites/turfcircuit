@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.lordicon.com/lordicon.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="/style/rootcss.css" />
+  <link rel="stylesheet" href="/style/profile.css" />
+  <title>TurfCircuit | <%= db.name %>
+  </title>
+</head>
+
+<body>
+  <!-- Navbar Code  -->
+  <div class="navbar">
+    <div class="burger">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+    <h2 class="title">
+      <lord-icon src="https://cdn.lordicon.com/bjxtqill.json" trigger="hover" colors="primary:#08a88a,secondary:#08a88a"
+        style="width:50px;height:50px">
+      </lord-icon>Turf<span class="red">Circuit</span>
+    </h2>
+
+    <ul class="navlinks">
+      <a href="#" class="cross">
+        <li class="cross">X</li>
+      </a>
+      <a href="/index">
+        <li>Home</li>
+      </a>
+      <a href="/queue" target="_blank">
+        <li>Match Queues</li>
+      </a>
+      <a href="/gallery">
+        <li>Gallery</li>
+      </a>
+      <a href="/aboutus">
+        <li>About US</li>
+      </a>
+      <a href="/contactUs">
+        <li>Contact US</li>
+      </a>
+      <li class="profileIcon" style="display: flex; justify-content: center; align-items: center;">
+        <lord-icon src="https://cdn.lordicon.com/kdduutaw.json" trigger="hover"
+          colors="primary:#08a88a,secondary:#08a88a" style="width:40px;height:40px"></lord-icon>
+        <div class="profileMenu">
+          <ul>
+            <li><a href="/profile">
+                <%= currentUser ? 'My Profile' : 'Login/Signup' %>
+              </a></li>
+            <li><a href="/players">Players</a></li>
+            <% if(currentUser) { %>
+              <li><a href="/logout" class="logout-link">Log Out</a></li>
+              <% } %>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <!-- MAIN PROFILE PAGE CODE  -->
+  <div class="landingPage">
+    <!-- FIRST PROFILE WALA SECTION -->
+    <div class="firstSection">
+      <!-- left image profile section  -->
+      <div class="mainProfile image-container">
+        <img src="" alt="Loading Image" class="responsive-image" />
+      </div>
+      <!-- right image profile section  -->
+      <div class="right">
+        <div class="rightHalf">
+          <a class="editInfo" href="#">Settings</a>
+          <!-- <h3 class="sectionStyle">Personal Information</h3> -->
+          <div class="playerStats" style="display: flex; flex-direction: row; justify-content: space-between;">
+            <p>Full Name: </p>
+            <p>
+              <%= db.fullName || db.name %>
+            </p>
+          </div>
+          <div class="playerStats" style="display: flex; flex-direction: row; justify-content: space-between;">
+            <p>Player Tag: </p>
+            <p>
+              <%= db.playerTag || "N/A" %>
+            </p>
+          </div>
+          <div class="playerStats" style="display: flex; flex-direction: row; justify-content: space-between;">
+            <p>Age: </p>
+            <p>
+              <%= db.age || "N/A" %>
+            </p>
+          </div>
+          <div class="playerStats" style="display: flex; flex-direction: row; justify-content: space-between;">
+            <p>Gender: </p>
+            <p>
+              <%= db.gender || "N/A" %>
+            </p>
+          </div>
+          <div class="playerStats" style="display: flex; flex-direction: row; justify-content: space-between;">
+            <p>Preferred Position: </p>
+            <p>
+              <%= db.preferredPosition || "N/A" %>
+            </p>
+          </div>
+          <div class="playerStats" style="display: flex; flex-direction: row; justify-content: space-between;">
+            <p>HomeTown: </p>
+            <p>
+              <%= db.homeTown || "N/A" %>
+            </p>
+          </div>
+          <div class="playerStats" style="display: flex; flex-direction: row; justify-content: space-between;">
+            <p>Favourite Club: </p>
+            <p>
+              <%= db.favClub || "N/A" %>
+            </p>
+          </div>
+          <div class="playerStats" style="display: flex; flex-direction: row; justify-content: space-between;">
+            <p>Preferred Jersey Number: </p>
+            <p>
+              <%= db.preferredJerseyNumber || "N/A" %>
+            </p>
+          </div>
+          <div class="playerStats" style="display: flex; flex-direction: row; justify-content: space-between;">
+            <p>Height & Weight: </p>
+            <p>
+              <%= db.HeightandWeight || "N/A" %>
+            </p>
+          </div>
+          <p class="playerStats playerSocials">
+            Socials:
+            <a href="https://www.instagram.com/<%= db.Socials.instagram %>/?hl=en" target="_blank"
+              rel="noopener noreferrer">
+              <%= db.Socials.instagram || "N/A" %>
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="masterDiv">
+      <div class="innerLeftmasterDiv">
+        <div class="playerDetails">
+          <div class="statleftHalf">
+            <p class="gameStats">
+              Matches Played: <span class="gap">
+                <%= db.playerStats.gamesPlayed %>
+              </span>
+            </p>
+            <p class="gameStats">Cards: <span class="gap">
+                <%= db.playerStats.card%>
+              </span></p>
+            <p class="gameStats">Free Kicks: <span class="gap">
+                <%= db.playerStats.freeKicks%>
+              </span></p>
+            <p class="gameStats">Penalties: <span class="gap">
+                <%= db.playerStats.penalties%>
+              </span></p>
+            <p class="gameStats">Goals: <span class="gap">
+                <%= db.playerStats.goals%>
+              </span></p>
+            <p class="gameStats">
+              Man of the Match Awards: <span class="gap">
+                <%= db.playerStats.motmAwards%>
+              </span>
+            </p>
+            <p class="gameStats">Assists: <span class="gap">
+                <%= db.playerStats.Assists%>
+              </span></p>
+            <p class="gameStats">
+              Wins/Draws/Losses: <span class="gap">
+                <%= db.playerStats.wdl[0]%>/<%= db.playerStats.wdl[1]%>/<%= db.playerStats.wdl[2]%>
+              </span>
+            </p>
+            <p class="gameStats">
+              Avg. Match Rating: <span class="gap">
+                <%= db.playerStats.rating%>/10
+              </span>
+            </p>
+          </div>
+          <div class="statrightHalf">
+            <div class="progressStat">
+              <p>Passing</p>
+              <div class="progressBar">
+                <p>
+                  <%= db.gameStats.passing %>%
+                </p>
+                <div class="innerProgress"></div>
+              </div>
+            </div>
+            <div class="progressStat">
+              <p>Dribbling</p>
+              <div class="progressBar">
+                <p>
+                  <%= db.gameStats.dribbling %>%
+                </p>
+                <div class="innerProgress"></div>
+              </div>
+            </div>
+            <div class="progressStat">
+              <p>Shooting</p>
+              <div class="progressBar">
+                <p>
+                  <%= db.gameStats.shooting %>%
+                </p>
+                <div class="innerProgress"></div>
+              </div>
+            </div>
+            <div class="progressStat">
+              <p>Defence</p>
+              <div class="progressBar">
+                <p>
+                  <%= db.gameStats.defence %>%
+                </p>
+                <div class="innerProgress"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="previousGames">
+          <table border="0" class="previousGamesTable">
+            <colgroup>
+              <col style="width: 5%; text-align: center" />
+              <col style="width: 65%; text-align: left" />
+              <col style="width: 20%; text-align: center" />
+              <col style="width: 10%; text-align: center" />
+            </colgroup>
+            <tr class="tableHeadings">
+              <th>Status</th>
+              <th style="text-align: left">Game</th>
+              <th>Date</th>
+              <th>Score</th>
+            </tr>
+            <% db.matchHistory.forEach(function(match) { %>
+              <tr>
+                <td style="text-align: center">
+                  <%= match.status %>
+                </td>
+                <td>
+                  <%= match.gameName %>
+                </td>
+                <td style="text-align: center">
+                  <%= new Date(match.date).getDate() %>-
+                    <%= new Date(match.date).getMonth() + 1 %>-
+                      <%= new Date(match.date).getFullYear() %>
+                </td>
+
+                <td style="text-align: center">
+                  <%= match.score %>
+                </td>
+              </tr>
+              <% }) %>
+
+          </table>
+        </div>
+      </div>
+
+      <div class="achievements">
+        <h3>Achievements</h3>
+        <ul>
+          <% db.Achievements.forEach(function(ach) { %>
+            <li>
+              <%= ach %>
+            </li>
+            <% }) %>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer  -->
+  <div class="footer">
+    <div class="footerLeft">
+      <lord-icon src="https://cdn.lordicon.com/bjxtqill.json" trigger="hover" style="width:50px;height:50px">
+      </lord-icon>
+      <h3> TurfCircuit</h3>
+    </div>
+    <div class="footerRight">
+      
+
+      <div class="footerdet"><lord-icon class="lord-icon" src="https://cdn.lordicon.com/onmwuuox.json" trigger="hover"
+          stroke="bold" colors="primary:#ffffff,secondary:#08a88a" style="width:30px;height:30px">
+        </lord-icon>
+        <p>Mehdipatnam, Hyderabad, India - 500028</p>
+      </div>
+      <div class="footerdet">
+        <lord-icon class="lord-icon" src="https://cdn.lordicon.com/vpbspaec.json" trigger="hover" stroke="bold"
+          colors="primary:#ffffff,secondary:#08a88a" style="width:30px;height:30px">
+        </lord-icon>
+        <p>masoodakataha@gmail.com</p>
+      </div>
+      <div class="footerdet">
+        <lord-icon class="lord-icon" src="https://cdn.lordicon.com/kdduutaw.json" trigger="hover" stroke="bold"
+          colors="primary:#ffffff,secondary:#08a88a" style="width:30px;height:30px">
+        </lord-icon>
+        <p>+91 - 9381354038</p>
+      </div>
+      <div class="footerdet floordetSocials">
+        <a href="http://www.facebook.com">
+          <lord-icon class="lord-iconSocials" src="https://cdn.lordicon.com/bfoumeno.json" trigger="hover" stroke="bold"
+            colors="primary:#ffffff,secondary:#08a88a" style="width:30px;height:30px">
+          </lord-icon>
+        </a>
+        <a href="http://www.instagram.com">
+          <lord-icon class="lord-iconSocials" src="https://cdn.lordicon.com/tgyvxauj.json" trigger="hover" stroke="bold"
+            colors="primary:#ffffff,secondary:#08a88a" style="width:30px;height:30px">
+          </lord-icon>
+        </a>
+        <a href="http://www.twitter.com">
+          <lord-icon class="lord-iconSocials" src="https://cdn.lordicon.com/yizwahhw.json" trigger="hover" stroke="bold"
+            colors="primary:#ffffff,secondary:#08a88a" style="width:30px;height:30px">
+          </lord-icon>
+        </a>
+        <a href="http://chat.whatsapp.com/LnegVafPerO560ZiW65rSW">
+          <lord-icon class="lord-iconSocials" src="https://cdn.lordicon.com/dnphlhar.json" trigger="hover" stroke="bold"
+            colors="primary:#ffffff,secondary:#08a88a" style="width:30px;height:30px">
+          </lord-icon>
+        </a>
+        <a href="http://www.github.com">
+          <lord-icon class="lord-iconSocials" src="https://cdn.lordicon.com/yvjimpju.json" trigger="hover" stroke="bold"
+            colors="primary:#ffffff,secondary:#08a88a" style="width:30px;height:30px">
+          </lord-icon>
+        </a>
+      </div>
+
+
+    </div>
+    <div class="mapFooter">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3807.3490648085153!2d78.4305894744685!3d17.395028083493436!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb97230b9f66fd%3A0xee0a1cdef20c04bf!2sCrank%20gym!5e0!3m2!1sen!2sin!4v1698232238080!5m2!1sen!2sin"
+        width="600" height="450" style="border: 0" allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
+
+  <div class="devInfoParentDiv">
+    <div class="developerInfo">
+      <p>Developed by Mohammed Masooduddin Siddiqui</p>
+      <p>© 2025 All Rights Reserved</p>
+      <p>mailto: <a href="mailto:masoodakataha@gmail.com" target="_blank">masoodakataha@gmail.com</a></p>
+      <p><a href="https://www.linkedin.com/in/masood059" target="_blank">Follow me on LinkedIn</a></p>
+      <p>Version: 1.0.0.0</p>
+      <p><a href="#" style="text-decoration: underline;">Download</a> our app for smoother experience (Android only)</p>
+      <p>Built using Node.js, Express, Mongodb, Ejs.</p>
+      <a class="devInfoExit">Exit</a>
+    </div>
+  </div>
+
+
+  <div class="Copyright">
+    © Copyright • TurfCircuit • 2025 • <lord-icon src="https://cdn.lordicon.com/ailnzwyn.json" trigger="hover" style="width:30px;height:30px"></lord-icon>
+  </div>
+
+  <div class="settingsPageWrapper">
+    <p style="position: absolute; top: 20px; right: 20px; color: var(--fourthColor); cursor: pointer; padding: 5px 10px; background-color: var(--secondaryColor); " class="exitSettings">X</p>
+    <div class="settingsPageContainer">
+      <div class="selector">
+        <ul>
+          <li class="profileTab" style="display: flex; justify-content: center; align-items: center;">
+            <lord-icon class="settingLordIcon" src="https://cdn.lordicon.com/kdduutaw.json" trigger="hover"
+              colors="primary:#ffffff,secondary:#08a88a" style="width:30px;height:30px">
+            </lord-icon>
+            Profile Settings
+          </li>
+          <li style="border-left: 1px solid black; display: flex; justify-content: center; align-items: center;"
+            class="themeTab">
+            <lord-icon class="settingLordIcon" src="https://cdn.lordicon.com/exymduqj.json"
+              colors="primary:#ffffff,secondary:#08a88a" trigger="hover" style="width:30px;height:30px">
+            </lord-icon>
+            Appearance
+          </li>
+          <li style="border-left: 1px solid black; display: flex; justify-content: center; align-items: center;"
+            class="privacyTab">
+            <lord-icon class="settingLordIcon" src="https://cdn.lordicon.com/sjoccsdj.json"
+              colors="primary:#ffffff,secondary:#08a88a" trigger="hover" style="width:30px;height:30px">
+            </lord-icon>
+            Privacy
+          </li>
+        </ul>
+      </div>
+
+      <div class="profileSettings">
+        <form action="/updateUser/<%= db.username%>" method="post">
+          <div class="playerInfoDiv">
+            <p>Full Name:</p>
+            <p class="data">
+              <%= db.fullName %>
+            </p>
+            <input type="text" class="updateInputFields" name="fullName" />
+            <svg class="pencil-icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+              <path fill="currentColor"
+                d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83l3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75z" />
+            </svg>
+            <!-- <svg class="tick-icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+              <path fill="currentColor" d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59z" />
+            </svg> -->
+          </div>
+
+          <div class="playerInfoDiv">
+            <p>Player Tag:</p>
+            <p class="data">
+              <%= db.playerTag %>
+            </p>
+            <input type="text" class="updateInputFields" name="playerTag" />
+            <svg class="pencil-icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+              <path fill="currentColor"
+                d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83l3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75z" />
+            </svg>
+            <!-- <svg class="tick-icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+              <path fill="currentColor" d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59z" />
+            </svg> -->
+          </div>
+
+          <div class="playerInfoDiv">
+            <p>Age:</p>
+            <p class="data">
+              <%= db.age %>
+            </p>
+            <input type="number" class="updateInputFields" name="age" />
+            <svg class="pencil-icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+              <path fill="currentColor"
+                d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83l3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75z" />
+            </svg>
+            <!-- <svg class="tick-icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+              <path fill="currentColor" d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59z" />
+            </svg> -->
+          </div>
+
+          <div class="playerInfoDiv">
+            <p>Gender:</p>
+            <p class="data">
+              <%= db.gender %>
+            </p>
+            <input type="text" class="updateInputFields" id="genderField" name="gender" />
+            <svg class="pencil-icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+              <path fill="currentColor"
+                d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83l3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75z" />
+            </svg>
+            <!-- <svg class="tick-icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+              <path fill="currentColor" d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59z" />
+            </svg> -->
+          </div>
+
+          <div class="playerInfoDiv">
+            <p>Preferred Position:</p>
+            <p class="data">
+              <%= db.preferredPosition %>
+            </p>
+            <input type="text" class="updateInputFields" name="preferredPosition" />
+            <svg class="pencil-icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+              <path fill="currentColor"
+                d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83l3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75z" />
+            </svg>
+            <!-- <svg class="tick-icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+              <path fill="currentColor" d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59z" />
+            </svg> -->
+          </div>
+
+          <div class="playerInfoDiv">
+            <p>HomeTown:</p>
+            <p class="data">
+              <%= db.homeTown %>
+            </p>
+            <input type="text" class="updateInputFields" name="homeTown">
+            <svg class="pencil-icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+              <path fill="currentColor"
+                d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83l3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75z" />
+            </svg>
+            <!-- <svg class="tick-icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+              <path fill="currentColor" d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59z" />
+            </svg> -->
+          </div>
+
+          <div class="playerInfoDiv">
+            <p>Favourite Club:</p>
+            <p class="data">
+              <%= db.favClub%>
+            </p>
+            <input type="text" class="updateInputFields" name="favClub" />
+            <svg class="pencil-icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+              <path fill="currentColor"
+                d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83l3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75z" />
+            </svg>
+            <!-- <svg class="tick-icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+              <path fill="currentColor" d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59z" />
+            </svg> -->
+          </div>
+
+          <div class="playerInfoDiv">
+            <p>Preferred Jersey Number:</p>
+            <p class="data">
+              <%= db.preferredJerseyNumber %>
+            </p>
+            <input type="text" class="updateInputFields" name="preferredJerseyNumber" />
+            <svg class="pencil-icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+              <path fill="currentColor"
+                d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83l3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75z" />
+            </svg>
+            <!-- <svg class="tick-icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+              <path fill="currentColor" d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59z" />
+            </svg> -->
+          </div>
+
+          <div class="playerInfoDiv">
+            <p>Height and Weight:</p>
+            <p class="data">
+              <%= db.HeightandWeight %>
+            </p>
+            <input type="text" class="updateInputFields" name="HeightandWeight" />
+            <svg class="pencil-icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+              <path fill="currentColor"
+                d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83l3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75z" />
+            </svg>
+            <!-- <svg class="tick-icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+              <path fill="currentColor" d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59z" />
+            </svg> -->
+          </div>
+
+          <div class="playerInfoDiv">
+            <p>Instagram:</p>
+            <p class="data">
+              <%= db.Socials && db.Socials.instagram ? db.Socials.instagram : "No Instagram linked" %>
+            </p>
+
+            <input type="text" class="updateInputFields" name="instagram" />
+            <svg class="pencil-icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+              <path fill="currentColor"
+                d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83l3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75z" />
+            </svg>
+            <!-- <svg class="tick-icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+              <path fill="currentColor" d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59z" />
+            </svg> -->
+          </div>
+
+          <button class="formSubmit" type="submit">Save Changes</button>
+          <!-- <a href="/delete" class="deleteAcc">Delete Account</a> -->
+        </form>
+      </div>
+
+      <div class="appearanceSettings">
+        <label for="theme">Theme:</label>
+        <select name="themeSelector" id="" class="themeSelector" style="margin: 0 1rem">
+          <option value="default">Default</option>
+          <option value="Barcelona">Barcelona FC</option>
+          <option value="RealMadrid">Real Madrid CF</option>
+          <option value="ManUtd">Manchester United</option>
+          <option value="ManCity">Manchester City</option>
+          <option value="Chelsea">Chelsea</option>
+          <option value="Juventus">Juventus</option>
+          <option value="Liverpool">Liverpool</option>
+          <option value="PSG">Paris-Saint German</option>
+          <option value="BayernMunich">Bayern Munich</option>
+          <option value="AcMilan">AC Milan</option>
+        </select>
+        <button class="setTheme">Set Theme</button>
+      </div>
+      <div class="privacySettings">
+        <form action="/updateUser/<%= db.username%>" method="post">
+          <input type="text" name="oldPassword" id="oldPassword" placeholder="Enter Old Password">
+          <input type="text" name="newPassword" id="newPassword" placeholder="Enter New Password">
+          <input type="text" name="renewPassword" id="renewPassword" placeholder="Re-Enter New Password">
+          <button type="submit" class="changePassBtn">Change Password</button>
+          <hr style="width: 100%; margin: 1rem 0;">
+          <a href="#" id="delete-user-link" data-username="<%= db.username %>" class="deleteAccBtn">Delete Account</a>
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- working fine -->
+  <script>
+    let errMsg = '<%= error %>';
+    if(errMsg) alert(errMsg);
+
+    let stats = document.querySelectorAll(".playerStats");
+    let progress = document.querySelectorAll(".innerProgress");
+    let displayPercentage = document.querySelectorAll(".progressBar p");
+    let previousGames = document.querySelectorAll(".previousGamesTable tr");
+    let achievements = document.querySelectorAll(".achievements li");
+    let edit = document.querySelectorAll(".pencil-icon");
+    let tick = document.querySelectorAll(".tick-icon");
+    let data = document.querySelectorAll(".data");
+    let input = document.querySelectorAll(".updateInputFields");
+    let save = document.querySelector(".formSubmit");
+    let profileSettings = document.querySelector(".settingsPageWrapper");
+    let settings = document.querySelector(".editInfo");
+    let profileTab = document.querySelector(".profileSettings");
+    let themeSelector = document.querySelector(".appearanceSettings");
+    let profileBtn = document.querySelector(".profileTab");
+    let themeBtn = document.querySelector(".themeTab");
+    let setThemeBtn = document.querySelector(".setTheme");
+    let saveThemeBtn = document.querySelector(".setTheme");
+    let themesList = document.querySelector(".themeSelector");
+
+    let privacyBtn = document.querySelector(".privacyTab");
+    let privacySettings = document.querySelector(".privacySettings")
+    let themes = themesList.options;
+    const rootStyles = getComputedStyle(document.documentElement);
+
+    const savedPrimaryColor = localStorage.getItem("primaryColor");
+    const savedSecondaryColor = localStorage.getItem("secondaryColor");
+    const savedThirdColor = localStorage.getItem("thirdColor");
+    const savedFourthColor = localStorage.getItem("fourthColor");
+
+    if (savedPrimaryColor) {
+      document.documentElement.style.setProperty("--primaryColor", savedPrimaryColor);
+    }
+    if (savedSecondaryColor) {
+      document.documentElement.style.setProperty("--secondaryColor", savedSecondaryColor);
+    }
+    if (savedThirdColor) {
+      document.documentElement.style.setProperty("--thirdColor", savedThirdColor);
+    }
+    if (savedFourthColor) {
+      document.documentElement.style.setProperty("--fourthColor", savedFourthColor);
+    }
+    document.getElementById('delete-user-link').addEventListener('click', async (event) => {
+      event.preventDefault();
+
+
+
+      const username = event.target.getAttribute('data-username');
+      confirmUsername = prompt('Enter Username')
+      if (username == confirmUsername) {
+        try {
+          const response = await fetch(`/user/${username}`, {
+            method: 'DELETE',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+          });
+
+          if (response.ok) {
+            window.location.href = '/login';
+          } else {
+            alert('Failed to delete profile');
+          }
+        } catch (error) {
+          console.error('Error:', error);
+          alert('Error deleting profile');
+        }
+
+      }
+      else {
+        alert('Incorrect Input');
+      }
+
+
+    });
+
+
+    function displayChange(element) {
+      for (let i = 0; i < element.length; i++) {
+        if (i % 2 === 1) {
+          element[i].style.backgroundColor = savedThirdColor;
+          // element[i].style.color = savedSecondaryColor;
+        }
+      }
+    }
+
+    function setProgress() {
+      for (let i = 0; i < displayPercentage.length; i++) {
+        progress[i].style.width = `${displayPercentage[i].innerText}`;
+      }
+    }
+
+    function toggleInput() {
+      edit.forEach((icon, index) => {
+        icon.addEventListener("click", () => {
+          input[index].style.display = "initial";
+          data[index].style.display = "none";
+          tick[index].style.display = "initial";
+          edit[index].style.display = "none";
+        });
+      });
+    }
+
+    function clickTick() {
+      tick.forEach((icon, index) => {
+        icon.addEventListener("click", () => {
+          input[index].style.display = "none";
+          data[index].style.display = "initial";
+          edit[index].style.display = "initial";
+          tick[index].style.display = "none";
+        });
+      });
+    }
+
+    save.addEventListener("click", () => {
+      profileSettings.style.display = "none";
+    });
+
+    settings.addEventListener("click", () => {
+      profileSettings.style.display = "flex";
+    });
+
+    themeBtn.addEventListener("click", () => {
+      profileTab.style.display = "none";
+      privacySettings.style.display = "none";
+      themeSelector.style.display = "flex";
+    });
+
+    profileBtn.addEventListener("click", () => {
+      themeSelector.style.display = "none";
+      privacySettings.style.display = "none";
+      profileTab.style.display = "initial";
+    });
+
+    privacyBtn.addEventListener('click', () => {
+      themeSelector.style.display = "none";
+      profileTab.style.display = "none";
+      privacySettings.style.display = "initial";
+    })
+
+
+    setThemeBtn.addEventListener("click", () => {
+      profileSettings.style.display = "none";
+      0;
+    });
+    themesList.addEventListener("change", () => {
+      let selectedTheme = themesList.options[themesList.selectedIndex];
+
+      let chosenTheme = selectedTheme.value;
+      switch (chosenTheme) {
+        case "Barcelona":
+          document.documentElement.style.setProperty("--primaryColor", "#004D98");
+          document.documentElement.style.setProperty("--secondaryColor", "#A50044");
+          document.documentElement.style.setProperty(
+            "--thirdColor",
+            "rgba(239, 239, 239, 0.8)"
+          );
+          document.documentElement.style.setProperty("--fourthColor", "#FFFFFF");
+          break;
+        case "RealMadrid":
+          document.documentElement.style.setProperty("--primaryColor", "#FFFFFF");
+          document.documentElement.style.setProperty("--secondaryColor", "#FFC700");
+          document.documentElement.style.setProperty(
+            "--thirdColor",
+            "rgba(237, 237, 237, 0.8)"
+          );
+          document.documentElement.style.setProperty("--fourthColor", "#000000");
+          break;
+        case "ManUtd":
+          document.documentElement.style.setProperty("--primaryColor", "#DA291C");
+          document.documentElement.style.setProperty("--secondaryColor", "#B1B3B3"); // Light Gray
+          document.documentElement.style.setProperty(
+            "--thirdColor",
+            "rgba(220, 0, 0, 0.8)"
+          ); // Light Red
+          document.documentElement.style.setProperty("--fourthColor", "#FFFFFF");
+          break;
+        case "ManCity":
+          document.documentElement.style.setProperty("--primaryColor", "#6CABDD");
+          document.documentElement.style.setProperty("--secondaryColor", "#1C2C5B");
+          document.documentElement.style.setProperty(
+            "--thirdColor",
+            "rgba(220, 220, 220, 0.8)"
+          );
+          document.documentElement.style.setProperty("--fourthColor", "#0D1B2A");
+          break;
+        case "Liverpool":
+          document.documentElement.style.setProperty("--primaryColor", "#C8102E");
+          document.documentElement.style.setProperty("--secondaryColor", "#FFFFFF");
+          document.documentElement.style.setProperty(
+            "--thirdColor",
+            "rgba(255, 0, 0, 0.8)"
+          ); // Light Red
+          document.documentElement.style.setProperty("--fourthColor", "#2D2D2D");
+          break;
+        case "Chelsea":
+          document.documentElement.style.setProperty("--primaryColor", "#034694");
+          document.documentElement.style.setProperty("--secondaryColor", "#FFFFFF");
+          document.documentElement.style.setProperty(
+            "--thirdColor",
+            "rgba(220, 220, 220, 0.8)"
+          );
+          document.documentElement.style.setProperty("--fourthColor", "#000000");
+          break;
+        case "Juventus":
+          document.documentElement.style.setProperty("--primaryColor", "#FFFFFF");
+          document.documentElement.style.setProperty("--secondaryColor", "#000000");
+          document.documentElement.style.setProperty(
+            "--thirdColor",
+            "rgba(240, 240, 240, 0.8)"
+          );
+          document.documentElement.style.setProperty("--fourthColor", "#7D7D7D");
+          break;
+        case "PSG":
+          document.documentElement.style.setProperty("--primaryColor", "#F5F5F5"); // Light Gray
+          document.documentElement.style.setProperty("--secondaryColor", "#DA291C"); // Red
+          document.documentElement.style.setProperty(
+            "--thirdColor",
+            "rgba(255, 255, 255, 0.8)"
+          ); // Lighter White
+          document.documentElement.style.setProperty("--fourthColor", "#2D2D2D"); // Dark Gray
+          break;
+        case "BayernMunich":
+          document.documentElement.style.setProperty("--primaryColor", "#DC052D");
+          document.documentElement.style.setProperty("--secondaryColor", "#FFFFFF");
+          document.documentElement.style.setProperty(
+            "--thirdColor",
+            "rgba(255, 0, 0, 0.8)"
+          ); // Light Red
+          document.documentElement.style.setProperty("--fourthColor", "#000000");
+          break;
+        case "AcMilan":
+          document.documentElement.style.setProperty("--primaryColor", "#ACABAB");
+          document.documentElement.style.setProperty("--secondaryColor", "#000000");
+          document.documentElement.style.setProperty(
+            "--thirdColor",
+            "rgba(211, 211, 211, 0.8)"
+          );
+          document.documentElement.style.setProperty("--fourthColor", "#ffffff");
+          break;
+        case "default":
+          document.documentElement.style.setProperty("--primaryColor", "black");
+          document.documentElement.style.setProperty("--secondaryColor", "#08a88a");
+          document.documentElement.style.setProperty(
+            "--thirdColor",
+            "rgba(8, 168, 138, 0.8)"
+          );
+          document.documentElement.style.setProperty("--fourthColor", "white");
+          break;
+      }
+    });
+    saveThemeBtn.addEventListener("click", function () {
+      let primaryColor = getComputedStyle(document.documentElement)
+        .getPropertyValue("--primaryColor")
+        .trim();
+      let secondaryColor = getComputedStyle(document.documentElement)
+        .getPropertyValue("--secondaryColor")
+        .trim();
+      let thirdColor = getComputedStyle(document.documentElement)
+        .getPropertyValue("--thirdColor")
+        .trim();
+      let fourthColor = getComputedStyle(document.documentElement)
+        .getPropertyValue("--fourthColor")
+        .trim();
+
+      localStorage.setItem("primaryColor", primaryColor);
+      localStorage.setItem("secondaryColor", secondaryColor);
+      localStorage.setItem("thirdColor", thirdColor);
+      localStorage.setItem("fourthColor", fourthColor);
+    });
+    let uclProfiles = ["https://img.uefa.com/imgml/TP/players/1/2025/cutoff/250052469.webp",
+      "https://img.uefa.com/imgml/TP/players/1/2025/cutoff/250121533.webp",
+      "https://img.uefa.com/imgml/TP/players/1/2025/cutoff/74699.webp",
+      "https://img.uefa.com/imgml/TP/players/1/2025/cutoff/250176450.webp",
+      "https://img.uefa.com/imgml/TP/players/1/2025/cutoff/250080471.webp",
+      "https://img.uefa.com/imgml/TP/players/1/2025/cutoff/250076574.webp",
+      "https://img.uefa.com/imgml/TP/players/1/2025/cutoff/250172668.webp",
+      "https://img.uefa.com/imgml/TP/players/1/2025/cutoff/250121965.webp",
+      "https://img.uefa.com/imgml/TP/players/1/2025/cutoff/250073809.webp",
+      "https://img.uefa.com/imgml/TP/players/1/2025/cutoff/250128377.webp",
+      "https://img.uefa.com/imgml/TP/players/1/2025/cutoff/250147342.webp",
+      "https://img.uefa.com/imgml/TP/players/1/2025/cutoff/250106939.webp",
+      "https://img.uefa.com/imgml/TP/players/1/2025/cutoff/250169705.webp",
+      "https://img.uefa.com/imgml/TP/players/1/2025/cutoff/250128270.webp",
+      "https://img.uefa.com/imgml/TP/players/1/2025/cutoff/250101696.webp",
+      "https://img.uefa.com/imgml/TP/players/1/2025/cutoff/250156002.webp",
+      "https://img.uefa.com/imgml/TP/players/1/2025/cutoff/250061507.webp",
+      "https://img.uefa.com/imgml/TP/players/1/2025/cutoff/250027008.webp",
+      "https://img.uefa.com/imgml/TP/players/1/2025/cutoff/250103561.webp",
+      "https://img.uefa.com/imgml/TP/players/1/2025/cutoff/250171278.webp",
+      "https://img.uefa.com/imgml/TP/players/1/2025/cutoff/250056189.webp"
+    ]
+    let randomNumber = Math.floor(Math.random() * uclProfiles.length);
+    document.querySelector('.responsive-image').setAttribute('src', uclProfiles[randomNumber]);
+
+    const lordIcon = document.querySelector('.navbar .title lord-icon');
+    const profilelordIcon = document.querySelector('.profileIcon lord-icon');
+    const pageTitle = document.title;
+    if (pageTitle != 'TurfCircuit | Home') {
+      lordIcon.setAttribute('colors', `primary:${savedSecondaryColor},secondary:${savedSecondaryColor}`);
+      profilelordIcon.setAttribute('colors', `primary:${savedSecondaryColor},secondary:${savedSecondaryColor}`);
+    }
+
+    toggleInput();
+    clickTick();
+    displayChange(stats);
+    displayChange(previousGames);
+    displayChange(achievements);
+    setProgress();
+    toggleInput();
+
+    const copyright = document.querySelector('.Copyright');
+    const devInfo = document.querySelector('.devInfoParentDiv');
+    const devInfoExit = document.querySelector('.devInfoExit');
+    copyright.addEventListener('click', () => {
+
+      devInfo.style.display = "flex";
+    })
+
+    devInfoExit.addEventListener('click', (e) => {
+      e.preventDefault();
+
+      devInfo.style.display = "none";
+    })
+
+    document.querySelector('.exitSettings').addEventListener('click', () => {
+      profileSettings.style.display = 'none';
+    })
+
+
+  </script>
+  <script src="/js/nav.js"></script>
+  <script src="/js/profile.js"></script>
+</body>
+
+</html>

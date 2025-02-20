@@ -1,0 +1,756 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Radio+Canada+Big:ital,wght@0,400..700;1,400..700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.cross {
+  display: none;
+  border: none;
+}
+
+.burger {
+  display: none;
+}
+
+.bg {
+  width: 100%;
+  position: fixed;
+  z-index: -99;
+}
+
+.bgvid {
+  width: 100%;
+}
+
+.blur-bg {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: -9;
+}
+
+.red {
+  color: red;
+}
+
+/* Navbar Styling */
+
+.title {
+  display: flex;
+  align-items: center;
+}
+
+.navbar {
+  width: 100%;
+  height: 10vh;
+  padding: 0 1.5rem;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navlinks {
+  display: flex;
+  height: 100%;
+  width: 60%;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.navlinks a {
+  height: 100%;
+  width: 100%;
+  /* margin: 0 1rem; */
+  text-decoration: none;
+  padding: 0rem;
+  color: white;
+}
+
+.navlinks a :hover {
+  border-bottom: 5px solid red;
+  /* background-color: rgba(255, 255, 255, 0.13); */
+}
+
+.navlinks li {
+  list-style: none;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profileMenu {
+  color: var(--fourthColor);
+  background-color: var(--primaryColor);
+  position: absolute;
+  top: 10vh;
+  right: 0;
+  width: 12rem;
+  display: none;
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.profileMenu a {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 0.5rem 0;
+  text-decoration: none;
+  color: var(--fourthColor);
+}
+
+.logout-link {
+  background-color: red;
+  font-weight: bold;
+  color: black;
+}
+
+.profileMenu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.profileIcon:hover .profileMenu {
+  display: initial;
+}
+
+/* Landing Page */
+.landingPage {
+  width: 100%;
+  height: 88vh;
+  padding: 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff8dc;
+  font-weight: bold;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.landingPage h1,
+.landingPage p,
+.landingPage a {
+  margin: 1rem;
+}
+
+.byline {
+  color: white;
+}
+
+.atags {
+  margin: 1rem;
+}
+
+.atags a {
+  background-color: red;
+  border-radius: 5px;
+  padding: 0.5rem 2rem;
+  color: black;
+}
+
+.atags a:hover {
+  background-color: transparent;
+  border: 1px solid red;
+  color: red;
+}
+
+.atags i {
+  margin: 0 0.5rem;
+}
+
+/* About us section styling */
+
+.aboutUsSection {
+  width: 100%;
+  height: 75%;
+  background-color: #000;
+  color: white;
+  padding: 5rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.cards {
+  width: 33%;
+  height: 100%;
+  padding: 1.5rem;
+  margin: 1rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  box-shadow: 0 1px 10px rgba(255, 0, 0, 0.623);
+}
+
+.cards p,
+.cards i {
+  width: 100%;
+}
+
+.cardsPara {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cards i {
+  font-size: 1.5rem;
+}
+
+/* whatWeDo section styling */
+.whatWeDo {
+  min-height: 50vh;
+  width: 100%;
+  background: linear-gradient(to right, black, gray);
+  color: #fff;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 5rem;
+}
+
+.aboutText {
+  padding: 0 3rem;
+  border-left: 5px solid red;
+}
+
+.aboutText h1 {
+  color: red;
+}
+
+.aboutText p {
+  width: 100%;
+  padding: 1rem 0;
+}
+
+/* Instruction Page Styling */
+
+.instructionsHeading {
+  color: red;
+}
+
+.instructions {
+  background-color: black;
+  color: white;
+  width: 100%;
+  min-height: 75vh;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.instructionContainer {
+  width: 100%;
+  height: 100%;
+  margin: 2rem 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.instructionFriendly {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.instructionTournament {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  width: 100%;
+  margin: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.whatsapp {
+  background-color: red;
+  border-radius: 5px;
+  padding: 0.5rem 2rem;
+  color: black;
+  font-weight: bold;
+  margin: 1rem 0 0 0;
+}
+
+/* FOOTER STYLING */
+
+.footer {
+  padding: 7.5rem 0 0 0;
+  background-color: black;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer div {
+  width: 100%;
+}
+
+.upper {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 4rem;
+}
+
+.upperLinks ul {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.upperLinks ul a {
+  color: white;
+}
+
+.upperHeading {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.lower {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 4rem;
+  border-bottom: 3px solid gray;
+}
+
+.lowerLinks ul {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: right;
+}
+
+.lowerLinks ul li {
+  color: white;
+  font-size: 2rem;
+  margin: 0 1rem;
+}
+
+.lowerEmail {
+  color: white;
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+@media only screen and (max-width: 1000px) { 
+.profileMenu {
+    color: var(--fourthColor);
+    background-color: white;
+    position: absolute;
+    width: 100%;
+    top: 65vh;
+    left: 0;
+    z-index: 10;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    border: 1px solid red;
+  }
+  
+  .profileMenu a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+    padding: 2rem 0;
+    text-decoration: none;
+    color: var(--primaryColor);
+  }
+  
+  .logout-link {
+    background-color: red;
+    font-weight: bold;
+    color: black;
+  }
+  
+  .logoutMobile {
+    display: none;
+    background-color: red;
+    color: black;
+  }
+  body {
+    width: 100%;
+    height: 100vh;
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+  }
+
+  .bg {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    position: fixed;
+    z-index: -99;
+  }
+
+  .bgvid {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .blur-bg {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: -9;
+  }
+
+  .red {
+    color: red;
+  }
+
+  /* navlink styling */
+  .navlinks a :hover {
+    background-color: initial;
+    border: initial;
+    color: initial;
+  }
+
+  .burger {
+    display: initial;
+  }
+
+  .cross {
+    display: initial;
+    border: none;
+  }
+
+  .navlinks {
+    position: absolute;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+    color: white;
+    justify-content: space-around;
+    align-items: center;
+    transform: translateX(-100%);
+  }
+
+  .navlinks a {
+    height: 0;
+    width: 100%;
+    text-decoration: none;
+    padding: 0;
+    color: white;
+  }
+
+  .navlinks li {
+    list-style: none;
+    height: 0%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .bar {
+    width: 20px;
+    height: 3px;
+    background-color: white;
+    margin: 3px 0;
+  }
+
+  .toggler {
+    transform: translateX(0%);
+    border: none;
+  }
+
+  .cross {
+    position: relative;
+    left: 20%;
+    text-align: right;
+    border: none;
+  }
+
+  /* Landing Page */
+  .landingPage {
+    width: 100%;
+    height: 88vh;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff8dc;
+    font-weight: bold;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+  }
+
+  .landingPage h1,
+  .landingPage p,
+  .landingPage a {
+    margin: 1rem;
+    text-align: center;
+  }
+
+  .byline {
+    color: white;
+  }
+
+  .atags {
+    margin: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .atags a {
+    background-color: red;
+    margin: 0.5rem;
+    border-radius: 5px;
+    padding: 0.5rem 2rem;
+    color: black;
+    font-weight: bold;
+  }
+
+  .atags i {
+    margin: 0 0.5rem;
+  }
+
+  /* CARDS STYLING */
+  .aboutUsSection {
+    width: 100%;
+    min-height: 140vh;
+    background-color: black;
+    color: white;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .cards {
+    width: 100%;
+    height: 33%;
+    padding: 1rem;
+    margin: 1rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 0 1px 10px rgba(255, 0, 0, 0.623);
+  }
+
+  .cards p,
+  .cards i {
+    margin: 0.5rem;
+  }
+
+  .cards i {
+    font-size: 1.5rem;
+  }
+
+  /* whatWeDo section styling */
+  .whatWeDo {
+    min-height: 50vh;
+    width: 100%;
+    background: linear-gradient(to right, black, gray);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0;
+  }
+
+  .aboutText {
+    padding: 2rem;
+    border-left: none;
+  }
+
+  .aboutText h1 {
+    color: red;
+  }
+
+  .aboutText p {
+    width: 100%;
+    padding: 1rem 0;
+  }
+
+  .whatWeDo img {
+    display: none;
+  }
+
+  /* INSTRUCTIONS STYLING */
+  .instructionsHeading {
+    color: red;
+  }
+
+  .instructions {
+    background-color: black;
+    color: white;
+    width: 100%;
+    min-height: 75vh;
+    padding: 3rem 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .instructionContainer {
+    width: 100%;
+    height: 100%;
+    margin: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .instructionFriendly {
+    border-bottom: 5px solid white;
+  }
+
+  .card {
+    margin: 2rem 0;
+  }
+
+  .whatsapp {
+    background-color: red;
+    border-radius: 5px;
+    padding: 0.5rem 2rem;
+    color: black;
+    font-weight: bold;
+  }
+
+  /* FOOTER STYLING */
+  .footer {
+    padding: 5rem 0 0 0;
+    background-color: black;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .footer div {
+    width: 100%;
+  }
+
+  .upper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    padding: 2rem 0 0 0;
+    border-bottom: none;
+    border-top: 1px solid white;
+  }
+
+  .upperLinks ul {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .upperLinks ul a {
+    color: white;
+    width: 100%;
+    padding: 1rem 0;
+  }
+
+  .upperHeading {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  .lower {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    border-bottom: none;
+  }
+
+  .lowerLinks ul {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+  }
+
+  .lowerLinks ul li {
+    color: white;
+    font-size: 2rem;
+    margin: 0 1rem;
+  }
+
+  .lowerEmail {
+    color: white;
+    font-size: 1.25rem;
+    font-weight: 500;
+  }
+}

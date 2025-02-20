@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.lordicon.com/lordicon.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="/style/rootcss.css" />
+  <link rel="stylesheet" href="/style/reindex.css" />
+  <title>TurfCircuit | Home</title>
+</head>
+
+<body>
+  <!-- Background Code  -->
+
+  <div class="bg">
+    <video src="/media/football2.mp4" class="bgvid" autoplay loop muted></video>
+  </div>
+
+  <!-- Blur Background -->
+  <div class="blur-bg"></div>
+
+  <!-- Main Webiste -->
+  <!-- NavBar -->
+  <div class="navbar">
+    <div class="burger">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+
+    <h2 class="title">
+      <lord-icon src="https://cdn.lordicon.com/bjxtqill.json" trigger="hover" colors="primary:#08a88a,secondary:#08a88a"
+        style="width:50px;height:50px">
+      </lord-icon>Turf<span class="#08a88a">Circuit</span>
+    </h2>
+
+    <ul class="navlinks">
+      <a href="#" class="cross">
+        <li class="cross">X</li>
+      </a>
+      <a href="/index">
+        <li>Home</li>
+      </a>
+      <a href="/queue" target="_blank">
+        <li>Match Queues</li>
+      </a>
+      <!-- <a href="#"><li>Tournament</li></a> -->
+      <a href="/gallery">
+        <li>Gallery</li>
+      </a>
+      <a href="/aboutus">
+        <li>About US</li>
+      </a>
+      <a href="/contactUs">
+        <li>Contact US</li>
+      </a>
+      <a href="/logout" class="logoutMobile" target="_blank">
+        <li>Log Out</li>
+      </a>
+
+      <li class="profileIcon" style="display: flex; justify-content: center; align-items: center;">
+        <lord-icon src="https://cdn.lordicon.com/kdduutaw.json" trigger="hover"
+          colors="primary:#08a88a,secondary:#08a88a" style="width:40px;height:40px"></lord-icon>
+        <div class="profileMenu">
+          <ul>
+            <li><a href="/profile">
+                <%= currentUser ? 'My Profile' : 'Login/Signup' %>
+              </a></li>
+            <li><a href="/players">Players</a></li>
+            <% if(currentUser) { %>
+              <li><a href="/logout" class="logout-link">Log Out</a></li>
+              <% } %>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Landing Section -->
+  <div class="landingPage">
+    <div class="writtenIntro">
+      <h1>TurfCircuit</h1>
+      <p>Join the community. Play games. Increase your stats.</p>
+    </div>
+    <div class="sliders">
+      <div class="upperContent">
+        <div class="matches">
+          <h3>Upcoming Matches</h3>
+          <div class="matchesContainer">
+            <% for(let i=0; i < db.length; i++) { %>
+              <% if(i===db.length-1) { %>
+                <div class="match">
+                  <h3>Turf: <%= db[i].groundName %>
+                  </h3>
+                  <div class="matchDetails">
+                    <div class="matchLeft">
+                      <p>Format: <%= db[i].PlayersLen/2 %> vs <%= db[i].PlayersLen/2 %>
+                      </p>
+                      <p>Date: <%= db[i].Date.getDate() %>-<%= db[i].Date.getMonth() + 1 %>-<%= db[i].Date.getFullYear()
+                              %>, <%= db[i].Date.getHours() %>:<%= db[i].Date.getMinutes() %>
+                      </p>
+
+                      <p>Price: <%= db[i].price %>/-</p>
+                    </div>
+                    <div class="matchRight">
+                      <p>Total Slots: <%= db[i].PlayersLen %>
+                      </p>
+                      <p>Available Slots: <%= db[i].PlayersLen - db[i].playersJoined.length %>
+                          <p>Type: <%= db[i].gameType %>
+                          </p>
+                    </div>
+                  </div>
+                </div>
+                <% } %>
+                  <% } %>
+                    <% for(let i=0; i < db.length; i++) { %>
+                      <% if(i===db.length-2) { %>
+                        <div class="match android-off">
+                          <h3>Turf: <%= db[i].groundName %>
+                          </h3>
+                          <div class="matchDetails">
+                            <div class="matchLeft">
+                              <p>Format: <%= db[i].PlayersLen/2 %> vs <%= db[i].PlayersLen/2 %>
+                              </p>
+                              <p>Date: <%= db[i].Date.getDate() %>-<%= db[i].Date.getMonth() + 1 %>-<%=
+                                      db[i].Date.getFullYear() %>, <%= db[i].Date.getHours() %>:<%=
+                                          db[i].Date.getMinutes() %>
+                              </p>
+
+                              <p>Price: <%= db[i].price %>/-</p>
+                            </div>
+                            <div class="matchRight">
+                              <p>Total Slots: <%= db[i].PlayersLen %>
+                              </p>
+                              <p>Available Slots: <%= db[i].PlayersLen - db[i].playersJoined.length %>
+                                  <p>Type: <%= db[i].gameType %>
+                                  </p>
+                            </div>
+                          </div>
+                        </div>
+                        <% } %>
+                          <% } %>
+          </div>
+        </div>
+        <div class="weekPlayers">
+          <div class="playerMonth playerMonth1">
+            <img src="https://secure.cache.images.core.optasports.com/soccer/players/150x150/326.png" alt="" />
+            <p class="playerName">Umair</p>
+            <p>Defender of the Month</p>
+            <p class="playerTag">The Wall</p>
+          </div>
+          <div class="playerMonth playerMonth2">
+            <img src="https://b.fssta.com/uploads/application/soccer/headshots/711.vresize.350.350.medium.24.png"
+              alt="" />
+            <p class="playerName">Hammad</p>
+            <p>Winger of the Month</p>
+            <p class="playerTag">The Ankle Bully</p>
+          </div>
+          <div class="playerMonth playerMonth3">
+            <img
+              src="https://i.namu.wiki/i/_rbsCc402rWGGvVXBZ3f55OrnkhTfFabpQAsHcYvp0D42g33VgIXZmaEySswIvdjC_2i5OhNsw-IbyQI4Yw-iA.webp"
+              alt="" />
+            <p class="playerName">Masood</p>
+            <p>All Rounder</p>
+            <p class="playerTag">Rising Star</p>
+          </div>
+          <div class="playerMonth playerMonth4">
+            <img
+              src="https://static.vecteezy.com/system/resources/previews/046/462/616/non_2x/smiling-soccer-player-holding-a-soccer-ball-on-transparent-background-png.png"
+              alt="" />
+            <p class="playerName">Labeeb</p>
+            <p>Midfielder of the Month</p>
+            <p class="playerTag">The PlayMaker</p>
+          </div>
+          <div class="playerMonth playerMonth5">
+            <img src="https://b.fssta.com/uploads/application/soccer/headshots/2257.vresize.350.350.medium.83.png"
+              alt="" />
+            <p class="playerName">Baseeh</p>
+            <p>Keeper of the Month</p>
+            <p class="playerTag">The Four Handed Keeper</p>
+          </div>
+        </div>
+        <div class="weekClips">
+          <% for(let i=0; i < 4; i++) { %>
+            <div class="clip">
+              <a href="/gallery">
+                <img src="<%= galleryDB[galleryDB.length - i - 1].thumbnail %>" alt="Video Thumbnail" />
+                <i class="fa-solid fa-play playbtn"></i>
+              </a>
+            </div>
+            <% } %>
+        </div>
+      </div>
+      <div class="dotsCounter">
+        <div class="circles circle1"></div>
+        <div class="circles circle2"></div>
+        <div class="circles circle3"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ticker">
+    <div class="ground">
+      <img src="https://www.magsportsarena.in/wp-content/uploads/2023/05/Mag-e-LOGO-1-150x61.png" alt="" />
+    </div>
+    <div class="ground">
+      <img src="https://www.astrosports.in/assets/xsite/images/logo.svg" alt="" />
+    </div>
+    <div class="ground">
+      <img src="https://www.flip-side.in/logo.png" alt="" />
+    </div>
+    <div class="ground">
+      <img src="https://lh3.googleusercontent.com/a-/ALV-UjU4vpu8_IQNbThrua8vI5vC5-e0kNvtvm8-88k0IcD3oKxKqgM=il"
+        alt="" />
+    </div>
+
+    <!-- Duplicate content for seamless scroll -->
+    <div class="ground">
+      <img src="https://www.magsportsarena.in/wp-content/uploads/2023/05/Mag-e-LOGO-1-150x61.png" alt="" />
+    </div>
+    <div class="ground">
+      <img src="https://www.astrosports.in/assets/xsite/images/logo.svg" alt="" />
+    </div>
+    <div class="ground">
+      <img src="https://www.flip-side.in/logo.png" alt="" />
+    </div>
+    <div class="ground">
+      <img src="https://lh3.googleusercontent.com/a-/ALV-UjU4vpu8_IQNbThrua8vI5vC5-e0kNvtvm8-88k0IcD3oKxKqgM=il"
+        alt="" />
+    </div>
+    <!-- Duplicate content for seamless scroll -->
+    <div class="ground">
+      <img src="https://www.magsportsarena.in/wp-content/uploads/2023/05/Mag-e-LOGO-1-150x61.png" alt="" />
+    </div>
+    <div class="ground">
+      <img src="https://www.astrosports.in/assets/xsite/images/logo.svg" alt="" />
+    </div>
+    <div class="ground">
+      <img src="https://www.flip-side.in/logo.png" alt="" />
+    </div>
+    <div class="ground">
+      <img src="https://lh3.googleusercontent.com/a-/ALV-UjU4vpu8_IQNbThrua8vI5vC5-e0kNvtvm8-88k0IcD3oKxKqgM=il"
+        alt="" />
+    </div>
+    <!-- Duplicate content for seamless scroll -->
+    <div class="ground">
+      <img src="https://www.magsportsarena.in/wp-content/uploads/2023/05/Mag-e-LOGO-1-150x61.png" alt="" />
+    </div>
+    <div class="ground">
+      <img src="https://www.astrosports.in/assets/xsite/images/logo.svg" alt="" />
+    </div>
+    <div class="ground">
+      <img src="https://www.flip-side.in/logo.png" alt="" />
+    </div>
+    <div class="ground">
+      <img src="https://lh3.googleusercontent.com/a-/ALV-UjU4vpu8_IQNbThrua8vI5vC5-e0kNvtvm8-88k0IcD3oKxKqgM=il"
+        alt="" />
+    </div>
+    <!-- Duplicate content for seamless scroll -->
+    <div class="ground">
+      <img src="https://www.magsportsarena.in/wp-content/uploads/2023/05/Mag-e-LOGO-1-150x61.png" alt="" />
+    </div>
+    <div class="ground">
+      <img src="https://www.astrosports.in/assets/xsite/images/logo.svg" alt="" />
+    </div>
+    <div class="ground">
+      <img src="https://www.flip-side.in/logo.png" alt="" />
+    </div>
+    <div class="ground">
+      <img src="https://lh3.googleusercontent.com/a-/ALV-UjU4vpu8_IQNbThrua8vI5vC5-e0kNvtvm8-88k0IcD3oKxKqgM=il"
+        alt="" />
+    </div>
+    <!-- Duplicate content for seamless scroll -->
+    <div class="ground">
+      <img src="https://www.magsportsarena.in/wp-content/uploads/2023/05/Mag-e-LOGO-1-150x61.png" alt="" />
+    </div>
+    <div class="ground">
+      <img src="https://www.astrosports.in/assets/xsite/images/logo.svg" alt="" />
+    </div>
+    <div class="ground">
+      <img src="https://www.flip-side.in/logo.png" alt="" />
+    </div>
+    <div class="ground">
+      <img src="https://lh3.googleusercontent.com/a-/ALV-UjU4vpu8_IQNbThrua8vI5vC5-e0kNvtvm8-88k0IcD3oKxKqgM=il"
+        alt="" />
+    </div>
+  </div>
+
+  <div class="whatWeDo">
+    <div class="aboutText">
+      <h1>WHAT WE DO?</h1>
+      <p>
+        Turf Circuit is a platform that links you with local football
+        activities and fellow players. Right now, Turf Circuit specializes in
+        organizing football matches in your city. Whether you're playing solo,
+        part of a group, or a team ready for a Losers to Pay (LTP) challenge,
+        we take care of everything—from gathering players to booking pitches.
+      </p>
+    </div>
+    <img src="/Frontend/static/logo2.PNG" alt="" />
+  </div>
+
+  <div class="cardsContainer">
+
+    <div class="cards">
+      <i class="fa-solid fa-user-group" style="color: #08a88a"></i>
+      <p class="cardsPara">
+        Join a vibrant football community, interact with passionate members,
+        and connect via our WhatsApp group. Dive into the game, meet
+        like-minded fans, and share the excitement!
+      </p>
+    </div>
+    <div class="cards">
+      <i class="fa-solid fa-trophy" style="color: #08a88a"></i>
+      <p class="cardsPara">
+        Participate in thrilling matches, showcase your skills, and compete
+        for prestigious trophies or cash prizes. Join the action and take your
+        game to the next level!
+      </p>
+    </div>
+    <div class="cards">
+      <i class="fa-solid fa-star" style="color: #08a88a"></i>
+      <p class="cardsPara">
+        Elevate your game with this program by enhancing your personal
+        performance, sharpening your skills, and boosting your individual
+        rating. Track your progress and rise through the ranks in every match!
+      </p>
+    </div>
+
+  </div>
+
+  <div class="quotes-container">
+    <div class="main-tc">
+      <p class="left">&lt;</p>
+      <p class="quotes-quote">
+        The greatest glory in living lies not in never falling, but in rising
+        every time we fall
+      </p>
+      <p class="right">&gt;</p>
+    </div>
+    <div class="countdiv">
+      <p class="count"><span class="maincounter">1</span>/5</p>
+    </div>
+  </div>
+
+  <!-- Instruction Sectiom -->
+  <div class="instructions">
+    <h1 class="instructionsHeading">HOW TO PLAY</h1>
+    <div class="instructionContainer">
+      <div class="instructionFriendly">
+        <div class="card">
+          <i class="fa-solid fa-futbol"></i>
+          <h3>Explore Games</h3>
+          <p>Find and join a game Solo or with friend(s)</p>
+        </div>
+        <div class="card">
+          <i class="fa-solid fa-futbol"></i>
+          <h3>Make the Payment</h3>
+          <p>
+            You'll be assigned a team. Make sure you follow the team colors.
+          </p>
+        </div>
+        <div class="card">
+          <i class="fa-solid fa-futbol"></i>
+          <h3>Play</h3>
+          <p>
+            Choose your own position early by just clicking Join Game.
+          </p>
+        </div>
+      </div>
+    </div>
+    <a href="http://chat.whatsapp.com/LnegVafPerO560ZiW65rSW" class="whatsapp"><i class="fa-brands fa-whatsapp"
+        target="_blank"></i> START BY SENDING HI</a>
+  </div>
+
+  <!-- map section -->
+  <iframe class="map"
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3807.3490648085153!2d78.4305894744685!3d17.395028083493436!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb97230b9f66fd%3A0xee0a1cdef20c04bf!2sCrank%20gym!5e0!3m2!1sen!2sin!4v1698232238080!5m2!1sen!2sin"
+    width="600" height="450" style="border: 0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+  <!-- footer section styling  -->
+  <div class="footer">
+    <div class="footerLeft">
+      <lord-icon src="https://cdn.lordicon.com/bjxtqill.json" colors="primary:#08a88a,secondary:#08a88a" trigger="hover"
+        style="width:50px;height:50px">
+      </lord-icon>
+      <h3> TurfCircuit</h3>
+    </div>
+    <div class="footerRight">
+      <div class="footerdet"><lord-icon class="lord-icon" src="https://cdn.lordicon.com/onmwuuox.json" trigger="hover"
+          stroke="bold" colors="primary:#08a88a,secondary:#08a88a" style="width:30px;height:30px">
+        </lord-icon>
+        <p>Mehdipatnam, Hyderabad, India</p>
+      </div>
+      <div class="footerdet">
+        <lord-icon class="lord-icon" src="https://cdn.lordicon.com/vpbspaec.json" trigger="hover" stroke="bold"
+          colors="primary:#08a88a,secondary:#08a88a" style="width:30px;height:30px">
+        </lord-icon>
+        <p>masoodakataha@gmail.com</p>
+      </div>
+      <div class="footerdet">
+        <lord-icon class="lord-icon" src="https://cdn.lordicon.com/kdduutaw.json" trigger="hover"
+          colors="primary:#08a88a,secondary:#08a88a" stroke="bold" colors="primary:#08a88a,secondary:#08a88a"
+          style="width:30px;height:30px">
+        </lord-icon>
+        <p>+91 - 9381354038</p>
+      </div>
+      <div class="footerdet floordetSocials">
+        <a href="https://www.facebook.com">
+          <lord-icon class="lord-iconSocials" src="https://cdn.lordicon.com/bfoumeno.json" trigger="hover" stroke="bold"
+            colors="primary:#08a88a,secondary:#08a88a" style="width:30px;height:30px">
+          </lord-icon>
+        </a>
+        <a href="https://www.instagram.com">
+          <lord-icon class="lord-iconSocials" src="https://cdn.lordicon.com/tgyvxauj.json" trigger="hover" stroke="bold"
+            colors="primary:#08a88a,secondary:#08a88a" style="width:30px;height:30px">
+          </lord-icon>
+        </a>
+        <a href="https://www.twitter.com">
+          <lord-icon class="lord-iconSocials" src="https://cdn.lordicon.com/yizwahhw.json" trigger="hover" stroke="bold"
+            colors="primary:#08a88a,secondary:#08a88a" style="width:30px;height:30px">
+          </lord-icon>
+        </a>
+        <a href="http://chat.whatsapp.com/LnegVafPerO560ZiW65rSW">
+          <lord-icon class="lord-iconSocials" src="https://cdn.lordicon.com/dnphlhar.json" trigger="hover" stroke="bold"
+            colors="primary:#08a88a,secondary:#08a88a" style="width:30px;height:30px">
+          </lord-icon>
+        </a>
+        <a href="https://www.github.com">
+          <lord-icon class="lord-iconSocials" src="https://cdn.lordicon.com/yvjimpju.json" trigger="hover" stroke="bold"
+            colors="primary:#08a88a,secondary:#08a88a" style="width:30px;height:30px">
+          </lord-icon>
+        </a>
+      </div>
+
+
+    </div>
+    <div class="mapFooter">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3807.3490648085153!2d78.4305894744685!3d17.395028083493436!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb97230b9f66fd%3A0xee0a1cdef20c04bf!2sCrank%20gym!5e0!3m2!1sen!2sin!4v1698232238080!5m2!1sen!2sin"
+        width="600" height="450" style="border: 0" allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
+
+  <div class="devInfoParentDiv">
+    <div class="developerInfo">
+      <p>Developed by Mohammed Masooduddin Siddiqui</p>
+      <p>© 2025 All Rights Reserved</p>
+      <p>mailto: <a href="mailto:masoodakataha@gmail.com" target="_blank">masoodakataha@gmail.com</a></p>
+      <p><a href="https://www.linkedin.com/in/masood059" target="_blank">Follow me on LinkedIn</a></p>
+      <p>Version: 1.0.0.0</p>
+      <p><a href="#" style="text-decoration: underline;">Download</a> our app for smoother experience (Android only)</p>
+      <p>Built using Node.js, Express, Mongodb, Ejs.</p>
+      <a class="devInfoExit">Exit</a>
+    </div>
+  </div>
+
+
+  <div class="Copyright" style="cursor: pointer;">
+    © Copyright • TurfCircuit • 2025 • <lord-icon src="https://cdn.lordicon.com/ailnzwyn.json" trigger="hover" style="width:30px;height:30px"></lord-icon>
+  </div>
+
+  <script src="/js/nav.js"></script>
+  <script src="/js/index.js"></script>
+  <script src="/js/common.js"></script>
+</body>
+
+</html>

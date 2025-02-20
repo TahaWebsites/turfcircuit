@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style/login.css">
+    <script src="https://cdn.lordicon.com/lordicon.js"></script>
+    <title>Log In</title>
+</head>
+
+<body>
+
+
+    <div class="imageContainer">
+        <img src="https://images.unsplash.com/photo-1560272564-c83b66b1ad12?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Zm9vdGJhbGwlMjBwbGF5ZXJ8ZW58MHx8MHx8fDA%3D"
+            alt="">
+    </div>
+    <div class="loginForm">
+        <form method="post" action="/login" autocomplete="off">
+            <!-- lordicon -->
+            <h1 class="loginTitle">Login</h1>
+            <h3 class="loginByLine">Let's get Started</h3>
+            <input type="text" placeholder="Username" name="username" autocomplete="off" required></input>
+            <div class="passwrordDv" style="width: 100%; display: flex; align-items: center; justify-content: center; ">
+                <input type="password" name="password" id="password" placeholder="Password" autocomplete="off" required>
+                <lord-icon src="https://cdn.lordicon.com/dicvhxpz.json" trigger="hover"
+                    colors="primary:#2EFF0A,secondary:#2EFF0A" style="width:30px;height:30px;cursor: pointer;" class="eye">
+                </lord-icon>
+            </div>
+
+            <% if(error) {%>
+                <p class="errorDiv">
+                    <%= error %>
+                </p>
+                <% } %>
+                    <button type="submit" style="cursor: pointer;">Login</button>
+
+                    <p style="color: white;">Need an account? <a href="/signup" style="color: #2EFF0A;">Sign Up</a></p>
+                    <p style="color: white;"><a href="/index" style="color: #2EFF0A; text-decoration: none;">Skip to
+                            Home Page</a></p>
+        </form>
+    </div>
+
+    <script>
+        document.querySelector('input').addEventListener('input', () => {
+            document.querySelector('.errorDiv').style.display = "none";
+        })
+
+        document.querySelector('.eye')?.addEventListener('click', () => {
+            let passwordInput = document.querySelector('#password');
+            if (passwordInput) {
+                passwordInput.type = passwordInput.type === 'password' ? 'text' : 'password';
+            }
+        });
+
+    </script>
+</body>
+
+</html>

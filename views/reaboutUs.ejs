@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.lordicon.com/lordicon.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/style/rootcss.css">
+    <link rel="stylesheet" href="/style/aboutUs.css" />
+    <title>TurfCircuit | About Us</title>
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="burger">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+
+        <h2 class="title">
+            <lord-icon src="https://cdn.lordicon.com/bjxtqill.json" trigger="hover" style="width:50px;height:50px">
+            </lord-icon>Turf<span class="red">Circuit</span>
+        </h2>
+
+        <ul class="navlinks">
+            <a href="#" class="cross">
+                <li class="cross">X</li>
+            </a>
+            <a href="/index">
+                <li>Home</li>
+            </a>
+            <a href="/queue" target="_blank">
+                <li>Match Queues</li>
+            </a>
+            <!-- <a href="#"><li>Tournament</li></a> -->
+            <a href="/gallery">
+                <li>Gallery</li>
+            </a>
+            <a href="/aboutus">
+                <li>About US</li>
+            </a>
+            <a href="/contactUs">
+                <li>Contact US</li>
+            </a>
+            <li class="profileIcon" style="display: flex; justify-content: center; align-items: center;">
+                <lord-icon src="https://cdn.lordicon.com/kdduutaw.json" trigger="hover"
+                    colors="primary:#08a88a,secondary:#08a88a" style="width:40px;height:40px"></lord-icon>
+                <div class="profileMenu">
+                    <ul>
+                        <li><a href="/profile">
+                                <%= currentUser ? 'My Profile' : 'Login/Signup' %>
+                            </a></li>
+                        <li><a href="/players">Players</a></li>
+                        <% if(currentUser) { %>
+                            <li><a href="/logout" class="logout-link">Log Out</a></li>
+                            <% } %>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="aboutUsPage">
+        <div class="upperDiv">
+            <div class="aboutText">
+                <h1>About Us</h1>
+                <p>Join Teams, Win Matches and Increase Your Stats!</p>
+                <p class="aboutPara">
+                    TurfCircuit is designed to be a platform that connects players, keeps track of records, and ranks
+                    casual sports enthusiasts in India.
+
+                    When it comes to casual sports like an evening football match, an interested player often
+                    faces the hassle of finding others to form teams and securing a 7v7 or any other field. This process
+                    can be
+                    tedious and discouraging. We are a group of individuals developing systems and technology to
+                    streamline local sports participation.
+
+                    "Sports don’t shape character; they uncover it." ⚽
+                </p>
+            </div>
+            <div class="aboutMedia">
+                <img src="https://i.pinimg.com/736x/4e/e3/da/4ee3dab62d7901a24d5f5d42a7d63fdf.jpg" alt="">
+            </div>
+        </div>
+        <div class="lowerDiv">
+            <div class="aboutStat1 aboutStat">
+                <p>Number of Matches</p>
+                <h2>
+                    <%= matchCount %>
+                </h2>
+            </div>
+            <div class="aboutStat2 aboutStat">
+                <p>Number of Users</p>
+                <h2>
+                    <%= usersCount %>
+                </h2>
+            </div>
+            <div class="aboutStat3 aboutStat">
+                <p>Number of Visitors</p>
+                <h2>
+                    <%= visitors %>
+                </h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="devInfoParentDiv">
+        <div class="developerInfo">
+            <p>Developed by Mohammed Masooduddin Siddiqui</p>
+            <p>© 2025 All Rights Reserved</p>
+            <p>mailto: <a href="mailto:masoodakataha@gmail.com" target="_blank">masoodakataha@gmail.com</a></p>
+            <p><a href="https://www.linkedin.com/in/masood059" target="_blank">Follow me on LinkedIn</a></p>
+            <p>Version: 1.0.0.0</p>
+      <p><a href="#" style="text-decoration: underline;">Download</a> our app for smoother experience (Android only)</p>
+            <p>Built using Node.js, Express, Mongodb, Ejs.</p>
+            <a class="devInfoExit">Exit</a>
+        </div>
+    </div>
+
+
+    <div class="Copyright" style="cursor: pointer;">
+        © Copyright • TurfCircuit • 2025 • <lord-icon src="https://cdn.lordicon.com/ailnzwyn.json" trigger="hover"
+            style="width:30px;height:30px">
+        </lord-icon>
+    </div>
+
+    <script src="/js/nav.js"></script>
+    <script src="/js/common.js"></script>
+</body>
+
+</html>

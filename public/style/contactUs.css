@@ -1,0 +1,388 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Radio+Canada+Big:ital,wght@0,400..700;1,400..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Caladea&family=Lato&family=Oswald:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Caladea&family=Oswald:wght@500&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    background-color: var(--primaryColor);
+    color: var(--fourthColor);
+}
+
+.cross {
+    display: none;
+    border: none;
+}
+
+.title {
+    display: flex;
+    align-items: center;
+}
+
+.burger {
+    display: none;
+}
+
+.navbar {
+    width: 100%;
+    height: 10vh;
+    padding: 0 1.5rem;
+    color: var(--fourthColor);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navlinks {
+    display: flex;
+    height: 100%;
+    width: 60%;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.navlinks a {
+    height: 100%;
+    width: 100%;
+    /* margin: 0 1rem; */
+    text-decoration: none;
+    padding: 0rem;
+    color: var(--fourthColor);
+}
+
+.navlinks a :hover {
+    border-bottom: 5px solid var(--secondaryColor);
+    /* background-color: rgba(255, 255, 255, 0.13); */
+}
+
+.navlinks li {
+    list-style: none;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profileMenu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.profileIcon:hover .profileMenu {
+    display: initial;
+}
+
+.profileMenu {
+    color: var(--fourthColor);
+    background-color: var(--secondaryColor);
+    position: absolute;
+    top: 10vh;
+    right: 0;
+    width: 12rem;
+    display: none;
+    z-index: 10;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.profileMenu a {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 0.5rem 0;
+    text-decoration: none;
+    color: var(--fourthColor);
+}
+
+.logout-link {
+    background-color: red;
+    font-weight: bold;
+    color: black;
+}
+
+.profileMenu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.profileIcon:hover .profileMenu {
+    display: initial;
+}
+
+
+.mainWrapper {
+    width: 100%;
+    display: flex;
+}
+
+.rightDiv {
+    min-width: 50%;
+    max-width: 50%;
+    height: 100vh;
+}
+
+.map {
+    width: 100%;
+    height: 100%;
+}
+
+.map iframe {
+    width: 100%;
+    height: 100%;
+}
+
+.contactDetailsContainer {
+    background-color: rgba(0, 0, 0, 0.85);
+    position: absolute;
+    top: 10vh;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    padding: 0 5rem;
+}
+
+.contactDetail {
+    margin: 2rem 0;
+    color: var(--fourthColor);
+}
+
+.contactDetail h4 {
+    display: flex;
+    align-items: center;
+}
+
+.contactDetail p {
+    margin: 0 4.4rem;
+}
+
+.rightDiv:hover .contactDetailsContainer {
+    display: none;
+}
+
+.leftDiv {
+    width: 50%;
+}
+
+.contactForm {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.contactForm form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.contactForm form input,
+.contactForm form button,
+.contactForm form textarea {
+    width: 75%;
+    margin: 1rem;
+}
+
+.contactForm form input,
+.contactForm form textarea {
+    outline: none;
+    border: none;
+    background-color: transparent;
+    border-bottom: 1px solid gray;
+    padding: 1rem;
+    color: var(--fourthColor);
+    resize: none;
+    overflow: auto;
+}
+
+.contactForm form button {
+    background-color: transparent;
+    color: var(--fourthColor);
+    outline: none;
+    border: none;
+    padding: 1.5rem 0;
+    border: 1px solid var(--thirdColor);
+    font-weight: bold;
+}
+
+.contactForm form button:hover {
+    background-color: var(--thirdColor);
+    color: var(--primaryColor);
+}
+
+.Copyright {
+    margin: 0;
+}
+
+@media only screen and (max-width: 1000px) { 
+    body {
+        width: 100%;
+        height: 100vh;
+        font-family: "Poppins", sans-serif;
+        font-weight: 300;
+        font-style: normal;
+    }
+
+    .red {
+        color: var(--secondaryColor);
+    }
+
+    /* navlink styling */
+    .navlinks a :hover {
+        background-color: initial;
+        border: initial;
+        color: initial;
+    }
+
+    .burger {
+        display: initial;
+    }
+
+    .cross {
+        display: initial;
+        border: none;
+    }
+
+    .navlinks {
+        position: absolute;
+        position: fixed;
+        left: 0;
+        top: 0;
+        height: 100vh;
+        width: 75%;
+        display: flex;
+        flex-direction: column;
+        background-color: var(--primaryColor);
+        color: var(--fourthColor);
+        justify-content: space-around;
+        align-items: center;
+        transform: translateX(-100%);
+        z-index: 99;
+    }
+
+    .navlinks a {
+        height: 0;
+        width: 100%;
+        text-decoration: none;
+        padding: 0;
+        color: var(--fourthColor);
+    }
+
+    .navlinks li {
+        list-style: none;
+        height: 0%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .bar {
+        width: 20px;
+        height: 3px;
+        background-color: var(--fourthColor);
+        margin: 3px 0;
+    }
+
+    .toggler {
+        transform: translateX(0%);
+        border: none;
+    }
+
+    .cross {
+        position: relative;
+        left: 20%;
+        text-align: right;
+        border: none;
+    }
+
+    .mainWrapper {
+        flex-direction: column;
+    }
+
+    .rightDiv {
+        width: 100%;
+        height: auto;
+        min-width: 100%;
+        max-width: 100%;
+    }
+
+    .contactDetailsContainer {
+        width: 100%;
+        padding: 0 2rem;
+        justify-content: center;
+        align-items: left;
+        top: 9vh;
+    }
+
+    .map {
+        width: 100%;
+        height: 100vh;
+    }
+
+    .leftDiv {
+        width: 100%;
+        height: auto;
+        padding: 2rem 0;
+    }
+
+    .profileMenu {
+        color: var(--fourthColor);
+        background-color: white;
+        position: absolute;
+        width: 100%;
+        top: 65vh;
+        left: 0;
+        z-index: 10;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+      }
+      
+      .profileMenu a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        text-align: center;
+        padding: 2rem 0;
+        text-decoration: none;
+        color: var(--primaryColor);
+      }
+      
+      .logout-link {
+        background-color: red;
+        font-weight: bold;
+        color: black;
+      }
+      
+      .logoutMobile {
+        display: none;
+        background-color: red;
+        color: black;
+      }
+
+}

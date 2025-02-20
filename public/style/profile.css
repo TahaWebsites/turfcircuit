@@ -1,0 +1,1109 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Radio+Canada+Big:ital,wght@0,400..700;1,400..700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+p {
+  word-wrap: break-word; 
+}
+
+.data {
+  max-width: 50%;
+  word-wrap: break-word;
+}
+
+li {
+  list-style: none;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  background-color: var(--primaryColor);
+  color: var(--fourthColor);
+}
+
+.cross {
+  display: none;
+  border: none;
+}
+
+.burger {
+  display: none;
+}
+
+.red {
+  color: var(--secondaryColor);
+}
+
+/* Navbar Styling */
+.title {
+  display: flex;
+  align-items: center;
+}
+
+.navbar {
+  width: 100%;
+  height: 10vh;
+  padding: 0 1.5rem;
+  color: var(--fourthColor);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navlinks {
+  display: flex;
+  height: 100%;
+  width: 60%;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.navlinks a {
+  height: 100%;
+  width: 100%;
+  /* margin: 0 1rem; */
+  text-decoration: none;
+  padding: 0rem;
+  color: var(--fourthColor);
+}
+
+.navlinks a :hover {
+  border-bottom: 5px solid var(--secondaryColor);
+  /* background-color: rgba(255, 255, 255, 0.13); */
+}
+
+.navlinks li {
+  list-style: none;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profileMenu {
+  color: var(--fourthColor);
+  background-color: var(--secondaryColor);
+  position: absolute;
+  top: 10vh;
+  right: 0;
+  width: 12rem;
+  display: none;
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.profileMenu a {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 0.5rem 0;
+  text-decoration: none;
+  color: var(--fourthColor);
+}
+
+.logout-link {
+  background-color: red;
+  font-weight: bold;
+  color: black;
+}
+
+.profileMenu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.profileIcon:hover .profileMenu {
+  display: initial;
+}
+
+/* Landing Page */
+.landingPage {
+  width: 100%;
+  min-height: 70vh;
+  padding: 3rem 7rem;
+}
+
+.firstSection {
+  width: 100%;
+  display: flex;
+  margin: 0 0;
+}
+
+.mainProfile {
+  height: 60vh;
+  width: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mainProfile img {
+  width: 95%;
+}
+
+.right {
+  width: 75%;
+  padding: 0 0 0 3rem;
+}
+
+.rightHalf {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: left;
+}
+
+.rightSecondHalf {
+  border: 1px solid green;
+  height: 50%;
+}
+
+.editInfo {
+  color: var(--secondaryColor);
+  text-decoration: underline;
+  display: block;
+  text-align: right;
+}
+
+.sectionStyle {
+  width: 100%;
+  text-align: center;
+  background-color: var(--secondaryColor);
+}
+
+.playerSocials a {
+  text-decoration: underline;
+  color: var(--fourthColor);
+}
+
+.masterDiv {
+  width: 100%;
+  display: flex;
+  margin: 5rem 0;
+}
+
+.innerLeftmasterDiv {
+  width: 73%;
+}
+
+.playerDetails {
+  width: 100%;
+  height: 50vh;
+  display: flex;
+}
+
+.statleftHalf,
+.statrightHalf {
+  padding: 2rem;
+}
+
+.statleftHalf {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.statrightHalf {
+  width: 60%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: right;
+}
+
+.gameStats {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  /* padding: 0 2rem; */
+}
+
+.progressBar {
+  width: 100%;
+  height: 1.5rem;
+  border-radius: 5rem;
+  background-color: #e0e0e0; /* light gray for better contrast */
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+}
+
+.innerProgress {
+  /* width: 60%; */
+  height: 100%;
+  background-color: var(--secondaryColor);
+  border-top-left-radius: 5rem;
+  border-bottom-left-radius: 5rem;
+}
+
+.progressBar p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  color: var(--primaryColor);
+  font-weight: bold;
+  z-index: 1;
+}
+
+.achievements {
+  /* display: none; */
+  padding: 2rem;
+  width: 25%;
+}
+
+.achievements h3 {
+  background-color: var(--secondaryColor);
+  color: var(--primaryColor);
+  text-align: center;
+}
+
+.achievements li {
+  margin: 0.5rem 0;
+  max-width: 100%;
+  /* text-align: center; */
+}
+
+.previousGames {
+  width: 100%;
+  margin: 5rem 0;
+  /* padding: 1.5rem; */
+}
+
+.previousGamesTable {
+  width: 100%;
+  outline: none;
+  border: none;
+}
+
+/* Settings Pages Styling  */
+.settingsPageWrapper {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: none;
+}
+
+.settingsPageContainer {
+  width: 80%;
+  background-color: var(--primaryColor);
+}
+
+.selector {
+  width: 100%;
+  height: 15%;
+  display: flex;
+  border-bottom: 1px solid var(--thirdColor);
+}
+
+.selector ul {
+  width: 100%;
+  display: flex;
+}
+
+.selector ul li {
+  padding: 1rem 2rem;
+  background-color: var(--primaryColor);
+  /* background-color: rgba(255, 0, 0, 0.5); */
+}
+
+/* .playerInfoDiv {
+  display: flex;
+  align-items: center;
+} */
+
+/* gpt start  */
+.profileSettings form {
+  padding: 1.5rem;
+  margin: 1rem 0;
+}
+
+.playerInfoDiv {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  /* justify-content: space-evenly; */
+  padding: 8px 0;
+}
+
+/* Label styling */
+.playerInfoDiv p {
+  flex: 1;
+  margin: 0;
+  text-align: left;
+  font-size: 1em;
+}
+
+/* Styling specifically for the data paragraph */
+.playerInfoDiv .data {
+  text-align: center; /* Center-aligns the text */
+  flex: 1; /* Allow it to take up space in the flex container */
+  margin: 0; /* Reset margin for proper alignment */
+}
+
+/* Input field centevar(--secondaryColor) and smaller */
+.playerInfoDiv input {
+  display: none;
+  background-color: transparent;
+  width: 40%;
+  padding: 4px 8px;
+  font-size: 1em;
+  text-align: center;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  outline: none;
+  color: var(--fourthColor);
+}
+
+/* Icon styling */
+.playerInfoDiv .pencil-icon,
+.playerInfoDiv .tick-icon {
+  margin-left: 8px;
+  cursor: pointer;
+  transition: color 0.3s;
+  border: none; /* Add space to show border */
+}
+
+/* Hover effects for icons */
+.playerInfoDiv .pencil-icon:hover,
+.playerInfoDiv .tick-icon:hover {
+  color: var(--secondaryColor); /* Change color on hover */
+}
+
+.formSubmit {
+  color: var(--fourthColor);
+  background-color: var(--secondaryColor);
+  padding: 0.5rem 2rem;
+  display: inline-block;
+  margin: 1rem 0 0 0;
+}
+
+.deleteAcc {
+  padding: 0.5rem 3rem;
+  background-color: red;
+  color: var(--primaryColor);
+  float: right;
+}
+
+/* gpt end  */
+.tick-icon {
+  display: none;
+}
+
+/* APPEARANCE SETTINGS  */
+.appearanceSettings {
+  display: none;
+  width: 100%;
+  padding: 5rem;
+}
+
+.themeSelector {
+  width: 40%;
+}
+
+.setTheme {
+  display: block;
+  padding: 0 2rem;
+  background-color: var(--secondaryColor);
+  color: var(--fourthColor);
+  outline: none;
+  border: none;
+}
+
+.privacySettings {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* text-align: center; */
+  align-items: center;
+  display: none;
+}
+
+.privacySettings form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem;
+}
+
+.privacySettings form input {
+  outline: none;
+  border: none;
+  background-color: transparent;
+  width: 50%;
+  margin: 1rem 0;
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid var(--secondaryColor);
+  color: var(--fourthColor);
+}
+
+.privacySettings form input::placeholder {
+  color: rgba(255, 255, 255, 0.8);
+  font-style: italic;
+}
+
+.changePassBtn {
+  padding: 0.5rem 3rem;
+  background-color: var(--secondaryColor);
+  outline: none;
+  border: none;
+}
+
+.deleteAccBtn {
+  background-color: red;
+  color: black;
+  font-weight: bold;
+  padding: 0.5rem 3rem;
+}
+
+.settingLordIcon {
+  margin: 0 0.25rem;
+}
+
+/*.theme {
+  width: 24%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* border: 1px solid var(--primaryColor); */
+/*padding: 2rem;
+  border-radius: 1.5rem;
+  height: 200px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.theme:hover {
+  border: 1px solid var(--secondaryColor);
+}
+
+.theme img {
+  width: 3rem;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+.savebtn {
+  display: block;
+  margin: 2rem auto 1rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  background-color: #333;
+  color: var(--fourthColor);
+  border: none;
+  border-radius: 0.5rem;
+} */
+
+/* FOOTER STYLING */
+
+/* FOOTER STYLING */
+
+.footer {
+  padding: 2rem;
+  background-color: black;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: white;
+}
+
+.footerRight {
+  display: flex;
+  min-width: 50%;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.footerLeft {
+  padding: 0 2rem;
+}
+
+.mapFooter iframe {
+  width: 25rem;
+  height: 15rem;
+}
+
+@media only screen and (max-width: 1000px) { 
+  body {
+    width: 100%;
+    height: 100vh;
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+  }
+
+  .vred {
+    color: var(--secondaryColor);
+  }
+
+  /* navlink styling */
+  .navlinks a :hover {
+    background-color: initial;
+    border: initial;
+    color: initial;
+  }
+
+  .burger {
+    display: initial;
+  }
+
+  .cross {
+    display: initial;
+    border: none;
+  }
+
+  .navlinks {
+    position: absolute;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--primaryColor);
+    color: var(--fourthColor);
+    justify-content: space-around;
+    align-items: center;
+    transform: translateX(-100%);
+    z-index: 9;
+  }
+
+  .navlinks a {
+    height: 0;
+    width: 100%;
+    text-decoration: none;
+    padding: 0;
+    color: var(--fourthColor);
+  }
+
+  .navlinks li {
+    list-style: none;
+    height: 0%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .bar {
+    width: 20px;
+    height: 3px;
+    background-color: var(--fourthColor);
+    margin: 3px 0;
+  }
+
+  .toggler {
+    transform: translateX(0%);
+    border: none;
+  }
+
+  .cross {
+    position: relative;
+    left: 20%;
+    text-align: right;
+    border: none;
+  }
+
+  /* Landing Page */
+  .landingPage {
+    width: 100%;
+    min-height: 100vh;
+    padding: 1rem;
+  }
+
+  .firstSection {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 0 0;
+  }
+
+  .mainProfile {
+    height: 60vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .mainProfile img {
+    width: 100%;
+  }
+
+  .right {
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .rightHalf {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: left;
+  }
+
+  .rightSecondHalf {
+    border: 1px solid green;
+    height: 50%;
+  }
+
+  .editInfo {
+    color: var(--secondaryColor);
+    text-decoration: underline;
+    display: block;
+    text-align: right;
+  }
+
+  .sectionStyle {
+    width: 100%;
+    text-align: center;
+    background-color: var(--secondaryColor);
+  }
+
+  .playerSocials a {
+    text-decoration: underline;
+    color: var(--secondaryColor);
+  }
+
+  .masterDiv {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 1rem 0;
+  }
+
+  .innerLeftmasterDiv {
+    width: 100%;
+  }
+
+  .playerDetails {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .statleftHalf,
+  .statrightHalf {
+    padding: 2rem;
+  }
+
+  .statleftHalf {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  .statrightHalf {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: right;
+  }
+
+  .gameStats {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    /* padding: 0 2rem; */
+  }
+
+  .progressBar {
+    width: 100%;
+    height: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-radius: 5rem;
+    background-color: #e0e0e0; /* light gray for better contrast */
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  .innerProgress {
+    /* width: 60%; */
+    height: 100%;
+    background-color: var(--secondaryColor);
+    border-top-left-radius: 5rem;
+    border-bottom-left-radius: 5rem;
+  }
+
+  .progressBar p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    color: var(--primaryColor);
+    font-weight: bold;
+    z-index: 1;
+  }
+
+  .achievements {
+    /* display: none; */
+    padding: 2rem;
+    width: 100%;
+  }
+
+  .achievements h3 {
+    background-color: var(--secondaryColor);
+    color: var(--primaryColor);
+    text-align: center;
+  }
+
+  .achievements li {
+    margin: 0.5rem 0;
+    max-width: 100%;
+    /* text-align: center; */
+  }
+
+  .previousGames {
+    width: 100%;
+    margin: 5rem 0;
+    /* padding: 1.5rem; */
+  }
+
+  .previousGamesTable {
+    width: 100%;
+    outline: none;
+    border: none;
+  }
+
+  /* Settings page styling android */
+  /* Settings Pages Styling  */
+  .settingsPageWrapper {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: none;
+  }
+
+  .settingsPageContainer {
+    width: 90%;
+    background-color: var(--primaryColor);
+  }
+
+  .selector {
+    width: 100%;
+    height: 15%;
+    display: flex;
+    border-bottom: 1px solid var(--thirdColor);
+    overflow-x: scroll;
+  }
+
+  .selector ul {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .selector ul li {
+    padding: 1rem;
+    width: 50%;
+    text-align: center;
+    background-color: var(--primaryColor);
+    /* background-color: rgba(255, 0, 0, 0.5); */
+  }
+
+  /* .playerInfoDiv {
+  display: flex;
+  align-items: center;
+} */
+
+  /* gpt start  */
+  .profileSettings form {
+    padding: 1rem;
+  }
+
+  .playerInfoDiv {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    /* justify-content: space-evenly; */
+    padding: 8px 0;
+  }
+
+  /* Label styling */
+  .playerInfoDiv p {
+    flex: 1;
+    margin: 0;
+    text-align: left;
+    font-size: 1em;
+  }
+
+  /* Styling specifically for the data paragraph */
+  .playerInfoDiv .data {
+    text-align: center; /* Center-aligns the text */
+    flex: 1; /* Allow it to take up space in the flex container */
+    margin: 0; /* Reset margin for proper alignment */
+  }
+
+  /* Input field centevar(--secondaryColor) and smaller */
+  .playerInfoDiv input {
+    display: none;
+    background-color: transparent;
+    width: 40%;
+    padding: 4px 8px;
+    font-size: 1em;
+    text-align: center;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    outline: none;
+    color: var(--fourthColor);
+  }
+
+  /* Icon styling */
+  .playerInfoDiv .pencil-icon,
+  .playerInfoDiv .tick-icon {
+    margin-left: 8px;
+    cursor: pointer;
+    transition: color 0.3s;
+    border: none; /* Add space to show border */
+  }
+
+  /* Hover effects for icons */
+  .playerInfoDiv .pencil-icon:hover,
+  .playerInfoDiv .tick-icon:hover {
+    color: var(--secondaryColor); /* Change color on hover */
+  }
+
+  .formSubmit {
+    color: var(--fourthColor);
+    background-color: var(--secondaryColor);
+    padding: 0.5rem 2rem;
+    display: inline-block;
+    margin: 1rem 0 0 0;
+  }
+
+  /* gpt end  */
+  .tick-icon {
+    display: none;
+  }
+
+  /* APPEARANCE SETTINGS  */
+  .appearanceSettings {
+    display: none;
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .themeSelector {
+    width: auto;
+  }
+
+  .setTheme {
+    display: block;
+    padding: 0 1rem;
+    background-color: var(--secondaryColor);
+    color: var(--fourthColor);
+    outline: none;
+    border: none;
+  }
+
+  .profileMenu {
+    color: var(--fourthColor);
+    background-color: white;
+    position: absolute;
+    width: 100%;
+    top: 65vh;
+    left: 0;
+    z-index: 10;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  }
+  
+  .profileMenu a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+    padding: 2rem 0;
+    text-decoration: none;
+    color: var(--primaryColor);
+  }
+  
+  .logout-link {
+    background-color: red;
+    font-weight: bold;
+    color: black;
+  }
+  
+  .logoutMobile {
+    display: none;
+    background-color: red;
+    color: black;
+  }
+
+  /* FOOTER STYLING */
+  .footer {
+    padding: 2rem 0;
+    background-color: black;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+  }
+
+  .footerLeft {
+    text-align: center;
+    padding: 0;
+    width: 100%;
+    margin: 1rem 0;
+  }
+
+  .footerRight {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+    margin: 2rem 0;
+    text-align: center;
+  }
+
+  .mapfooter {
+    width: 100%;
+    margin: 1rem 0;
+  }
+
+  .extrasFooter {
+    display: inline;
+    width: 40%;
+  }
+  .socials {
+    display: inline;
+    width: 40%;
+  }
+
+  .mapFooter iframe {
+    width: 100%;
+    height: 15rem;
+  }
+
+  .footer {
+    padding: 2rem 0;
+    background-color: black;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+  }
+
+  .footerLeft {
+    text-align: center;
+    padding: 0;
+    width: 100%;
+    margin: 1rem 0;
+  }
+
+  .footerRight {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem 0;
+    text-align: center;
+  }
+
+  .mapfooter {
+    width: 100%;
+    margin: 1rem 0;
+  }
+
+  .footerdet {
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+  }
+
+  .extrasFooter {
+    display: inline;
+    width: 40%;
+  }
+
+  .socials {
+    display: inline;
+    width: 40%;
+
+  }
+
+  .mapFooter iframe {
+    width: 100%;
+    height: 15rem;
+  }
+
+  .image-container {
+    width: 100%;
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+  }
+  
+  .responsive-image {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  .text-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 55%);
+    color: white;
+    font-size: 2rem;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+    font-family: 'Arial', sans-serif;
+    pointer-events: none;
+  }
+}

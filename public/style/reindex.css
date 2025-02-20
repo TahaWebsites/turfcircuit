@@ -1,0 +1,1305 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Radio+Canada+Big:ital,wght@0,400..700;1,400..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Caladea&family=Lato&family=Oswald:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Caladea&family=Oswald:wght@500&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.fade-in-div {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: black; /* Change to any color */
+  opacity: 0;
+  animation: fadeIn 2s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+      opacity: 1;
+  }
+  to {
+      opacity: 0;
+  }
+}
+
+.cross {
+  display: none;
+  border: none;
+}
+
+.burger {
+  display: none;
+}
+
+.bg {
+  width: 100%;
+  position: fixed;
+  z-index: -99;
+}
+
+.bgvid {
+  width: 100%;
+}
+
+.blur-bg {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: -9;
+}
+
+.red {
+  color: #08a88a;
+}
+
+/* Navbar Styling */
+
+.title {
+  display: flex;
+  align-items: center;
+}
+
+.navbar {
+  width: 100%;
+  height: 10vh;
+  padding: 0 1.5rem;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 9999;
+}
+
+.navlinks {
+  display: flex;
+  height: 100%;
+  width: 55%;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.navlinks a {
+  height: 100%;
+  width: 100%;
+  /* margin: 0 1rem; */
+  text-decoration: none;
+  padding: 0rem;
+  color: white;
+}
+
+.navlinks a :hover {
+  border-bottom: 5px solid #08a88a;
+  /* background-color: rgba(255, 255, 255, 0.13); */
+}
+
+.navlinks li {
+  list-style: none;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Landing Page */
+.landingPage {
+  width: 100%;
+  height: 65vh;
+  padding: 1rem 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  color: #fff8dc;
+  font-weight: bold;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  padding-top: 10vh;
+}
+
+.writtenIntro {
+  width: 100%;
+  height: 25%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.sliders {
+  width: 100%;
+  height: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.upperContent {
+  width: 100%;
+  height: 92%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dotsCounter {
+  width: 100%;
+  height: 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.circles {
+  width: 0.75rem;
+  height: 0.75rem;
+  background-color: white;
+  margin: 0 2px;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  font-size: 0.7rem;
+}
+
+.circles.active {
+  background: linear-gradient(to right,
+      #32cd32,
+      #000000);
+  /* Grass green to black gradient */
+}
+
+/* matches SLIDER 1 */
+
+.matches {
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  border-radius: 0.5rem;
+  color: black;
+  background-image: url(https://timelinecovers.pro/facebook-cover/download/straight-kick-from-a-soccer-athlete-facebook-cover.jpg);
+  background-position: center;
+  background-size: cover;
+  /* display: none; */
+}
+
+.matches h3 {
+  width: 100%;
+  height: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to right,
+      #32cd32,
+      #000000);
+  /* Grass green to black */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.matcha {
+  width: 100%;
+  height: 80%;
+  padding: 1rem;
+  display: flex;
+}
+
+.matchesContainer {
+  width: 100%;
+  height: 80%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 1rem;
+}
+
+.match {
+  width: 48%;
+  height: 100%;
+  background-color: white;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  text-align: left;
+}
+
+.match h3 {
+  width: 100%;
+  text-align: center;
+}
+
+.matchDetails {
+  display: flex;
+  width: 100%;
+}
+
+.matchDetails div {
+  margin: 0 1rem;
+  width: 49%;
+}
+
+.match a {
+  border: 1px solid #08a88a;
+  text-decoration: none;
+  color: white;
+}
+
+/* week players SLIDER 2 */
+
+.weekPlayers {
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  border-radius: 0.5rem;
+  color: black;
+  display: flex;
+  justify-content: space-around;
+  display: none;
+}
+
+.playerMonth {
+  width: 19%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.playerMonth img {
+  width: 100px;
+  height: 100px;
+}
+
+.playerTag {
+  color: #08a88a;
+}
+
+.playerName {
+  text-transform: uppercase;
+  margin: 5px 0;
+}
+
+/* clips SLIDER 3 */
+.weekClips {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 0.5rem;
+  color: black;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  display: none;
+}
+
+.clip {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 23%;
+  height: 85%;
+}
+
+.clip img {
+  width: 100%;
+  height: 80%;
+  filter: blur(0.6px);
+}
+
+.playbtn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9;
+  font-size: 2rem;
+  color: white;
+}
+
+/* profile search SLIDER 4 */
+
+.profileSearch {
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  border-radius: 0.5rem;
+  color: black;
+  display: flex;
+  justify-content: space-around;
+}
+
+/* TICKER STYLING */
+.ticker {
+  width: 100%;
+  background-color: black;
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+  position: relative;
+  padding: 3rem 0;
+}
+
+.ticker .ground {
+  display: inline-block;
+  animation: ticker 5s linear infinite;
+}
+
+.ticker .ground img {
+  width: 4rem;
+  margin-right: 2rem;
+}
+
+@keyframes ticker {
+  0% {
+    transform: translateX(100%);
+  }
+
+  50% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* About us section styling */
+
+.aboutUsSection {
+  width: 100%;
+  background-color: #000;
+  color: white;
+  padding: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cardsContainer {
+  width: 100%;
+  height: 60%;
+  display: flex;
+  padding: 4rem 2rem;
+  background-color: white;
+  color: black;
+}
+
+.cards {
+  width: 33%;
+  height: auto;
+  padding: 1.5rem;
+  margin: 1rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  box-shadow: 0 1px 10px #08a88a;
+}
+
+.cards i {
+  width: 100%;
+  text-align: left;
+}
+
+.cardsPara {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: justify;
+}
+
+.cards i {
+  font-size: 1.5rem;
+}
+
+/* whatWeDo section styling */
+.whatWeDo {
+  min-height: 50vh;
+  width: 100%;
+  background: linear-gradient(to right, black, gray);
+  color: #fff;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 5rem;
+}
+
+.aboutText {
+  padding: 0 3rem;
+  border-left: 5px solid #08a88a;
+}
+
+.aboutText h1 {
+  color: #08a88a;
+}
+
+.aboutText p {
+  width: 100%;
+  padding: 1rem 0;
+}
+
+/* quotes container styles  */
+
+.quotes-container {
+  width: 100%;
+  min-height: 50vh;
+  background-image: url(https://cdn.pixabay.com/photo/2020/01/12/16/57/stadium-4760441_1280.jpg),
+    linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8));
+  background-blend-mode: overlay;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+}
+
+.main-tc {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+
+.quotes-quote {
+  font-size: 1.3rem;
+  font-weight: 400;
+  font-family: "Oswald", sans-serif;
+  text-transform: uppercase;
+  min-width: 50%;
+  max-width: 50%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: ease-in-out 0.5s;
+  color: white;
+}
+
+.count {
+  color: white;
+}
+
+.left,
+.right {
+  padding: 2rem 1rem;
+  color: black;
+  font-weight: 900;
+  font-size: 3rem;
+  color: rgb(187, 187, 187);
+  font-family: "Oswald", sans-serif;
+}
+
+.right::selection {
+  background-color: none;
+  color: white;
+}
+
+.left::selection {
+  background-color: none;
+  color: white;
+}
+
+.left:hover {
+  color: white;
+}
+
+.right:hover {
+  color: white;
+}
+
+/* Instruction Page Styling */
+
+.instructionsHeading {
+  color: #08a88a;
+}
+
+.instructions {
+  background-color: black;
+  color: white;
+  width: 100%;
+  min-height: 90vh;
+  height: auto;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.instructionContainer {
+  width: 100%;
+  height: 100%;
+  margin: 2rem 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.instructionFriendly {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.instructionTournament {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  width: 100%;
+  margin: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.whatsapp {
+  background-color: #08a88a;
+  border-radius: 5px;
+  padding: 0.5rem 2rem;
+  color: black;
+  font-weight: bold;
+  margin: 1rem 0 0 0;
+}
+
+/* Map Styling Begins  */
+
+.map {
+  width: 100%;
+  min-height: 50vh;
+  filter: invert(100%);
+}
+.profileMenu {
+  color: black;
+  background-color: #08a88a;
+  position: absolute;
+  top: 10vh;
+  right: 0;
+  width: 12rem;
+  display: none;
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.profileMenu a {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 0.5rem 0;
+  text-decoration: none;
+  color: var(--fourthColor);
+}
+
+.logout-link {
+  background-color: red;
+  font-weight: bold;
+  color: black;
+}
+
+.profileMenu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.profileIcon:hover .profileMenu {
+  display: initial;
+}
+
+.logoutMobile {
+  display: none;
+}
+
+/* FOOTER STYLING */
+
+.footer {
+  padding: 2rem;
+  background-color: black;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: white;
+}
+
+.footer a {
+  color: white;
+}
+
+.footerRight {
+  display: flex;
+  flex-direction: column;
+  min-width: 50%;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.footerLeft {
+  padding: 0 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.mapFooter iframe {
+  width: 25rem;
+  height: 15rem;
+}
+
+.footerdet {
+  display: flex;
+  justify-content: center;
+  align-items: left;
+  text-align: left;
+  width: 100%;
+  text-align: left;
+  padding: 0 2rem;
+  margin: 0.5rem 0;
+}
+
+.floordetSocials {
+  justify-content: center;
+  align-items: center;
+  margin: 2rem 0;
+}
+
+.lord-iconSocials {
+  margin: 0 1rem;
+}
+
+.lord-icon {
+  margin: 0 1rem 0 0;
+}
+
+.socials ul li {
+  color: white;
+}
+
+@media only screen and (max-width: 1000px) {
+
+  body {
+    width: 100%;
+    height: 100vh;
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+  }
+
+  .bg {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    position: fixed;
+    z-index: -99;
+  }
+
+  .bgvid {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .blur-bg {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: -9;
+  }
+
+  .red {
+    color: #08a88a;
+  }
+
+  /* navlink styling */
+  .navlinks a :hover {
+    background-color: initial;
+    border: initial;
+    color: initial;
+  }
+
+  .burger {
+    display: initial;
+  }
+
+  .cross {
+    display: initial;
+    border: none;
+  }
+
+  .navlinks {
+    position: absolute;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+    color: white;
+    justify-content: space-around;
+    align-items: center;
+    transform: translateX(-100%);
+    z-index: 99;
+  }
+
+  .navlinks a {
+    height: 0;
+    width: 100%;
+    text-decoration: none;
+    padding: 0;
+    color: white;
+  }
+
+  .navlinks li {
+    list-style: none;
+    height: 0%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .bar {
+    width: 20px;
+    height: 3px;
+    background-color: white;
+    margin: 3px 0;
+  }
+
+  .toggler {
+    transform: translateX(0%);
+    border: none;
+  }
+
+  .cross {
+    position: relative;
+    left: 20%;
+    text-align: right;
+    border: none;
+  }
+
+  .profileMenu {
+    color: var(--fourthColor);
+    background-color: white;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 9.5rem;
+    height: auto;
+    /* display: none; */
+    z-index: 9;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  }
+  
+  .profileMenu a {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 0.5rem 0;
+    text-decoration: none;
+    color: var(--primaryColor);
+  }
+  
+  .logout-link {
+    background-color: red;
+    font-weight: bold;
+    color: black;
+  }
+  
+  .profileMenu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .logoutMobile {
+    background-color: red;
+    color: black;
+  }
+  
+  .profileIcon:hover .profileMenu {
+    display: initial;
+  }
+
+  .profileIcon {
+    display: none;
+  }
+
+  /* Landing Page */
+  .landingPage {
+    width: 100%;
+    height: 80vh;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    color: #fff8dc;
+    font-weight: bold;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+  }
+
+  .writtenIntro {
+    width: 100%;
+    height: 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .sliders {
+    width: 100%;
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .upperContent {
+    width: 100%;
+    height: 92%;
+  }
+
+  .dotsCounter {
+    width: 100%;
+    height: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .circles {
+    width: 0.75rem;
+    height: 62.5%;
+    background-color: white;
+    margin: 0 2px;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    font-size: 0.7rem;
+  }
+
+  .circles.active {
+    background: linear-gradient(to right,
+        #32cd32,
+        #000000);
+    /* Grass green to black gradient */
+  }
+
+  /* matches SLIDER 1 */
+
+  .matches {
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    border-radius: 0.5rem;
+    color: black;
+    background-image: url(https://timelinecovers.pro/facebook-cover/download/straight-kick-from-a-soccer-athlete-facebook-cover.jpg);
+    background-position: center;
+    background-size: cover;
+    /* display: none; */
+  }
+
+  .matches h3 {
+    width: 100%;
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to right,
+        #32cd32,
+        #000000);
+    /* Grass green to black */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .matchesContainer {
+    width: 100%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 1rem;
+  }
+
+  .match {
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    padding: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    text-align: left;
+  }
+
+  .android-off {
+    display: none;
+  }
+
+  .match h3 {
+    width: 100%;
+    text-align: center;
+  }
+
+  .matchDetails {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .matchDetails div {
+    margin: 0 1rem;
+    width: 100%;
+  }
+
+  .match a {
+    border: 1px solid #08a88a;
+    text-decoration: none;
+    color: white;
+  }
+
+  /* week players SLIDER 2 */
+
+  .weekPlayers {
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    border-radius: 0.5rem;
+    color: black;
+    display: flex;
+    justify-content: space-around;
+    display: none;
+  }
+
+  .playerMonth {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    display: none;
+  }
+
+  .playerMonth img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .playerTag {
+    color: #08a88a;
+  }
+
+  .playerName {
+    text-transform: uppercase;
+    margin: 5px 0;
+  }
+
+  .playerSlider {
+    display: flex;
+    width: 100%;
+  }
+
+  /* clips SLIDER 3 */
+  .weekClips {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 0.5rem;
+    color: black;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    display: none;
+  }
+
+  .clip {
+    position: relative;
+    padding: 1rem;
+    width: 100%;
+    height: 85%;
+    display: none;
+  }
+
+  .clip img {
+    width: 100%;
+    filter: blur(0.6px);
+  }
+
+  .clip:nth-child(1) {
+    display: initial;
+  }
+
+  .playbtn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2rem;
+    color: white;
+  }
+
+  /* CARDS STYLING */
+  .aboutUsSection {
+    width: 100%;
+    min-height: 140vh;
+    background-color: black;
+    color: white;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .cardsContainer {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    width: auto;
+    padding: 1rem;
+  }
+
+
+  .cards {
+    width: 100%;
+    padding: 1rem;
+    margin: 1rem 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 0 1px 10px var(--secondaryColor);
+  }
+
+  .cards p,
+  .cards i {
+    margin: 0.5rem 0;
+  }
+
+  .cards i {
+    font-size: 1.5rem;
+  }
+
+  /* whatWeDo section styling */
+  .whatWeDo {
+    min-height: 50vh;
+    width: 100%;
+    background: linear-gradient(to right, black, gray);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0;
+  }
+
+  .aboutText {
+    padding: 2rem;
+    border-left: none;
+  }
+
+  .aboutText h1 {
+    color: #08a88a;
+  }
+
+  .aboutText p {
+    width: 100%;
+    padding: 1rem 0;
+  }
+
+  .whatWeDo img {
+    display: none;
+  }
+
+  .countdiv {
+    margin: 3rem 0 0 0;
+  }
+
+  /* INSTRUCTIONS STYLING */
+  .instructionsHeading {
+    color: #08a88a;
+  }
+
+  .instructions {
+    background-color: black;
+    color: white;
+    width: 100%;
+    min-height: 75vh;
+    padding: 3rem 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+  }
+
+  .instructionContainer {
+    width: 100%;
+    height: 100%;
+    margin: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .instructionFriendly {
+    border-bottom: 5px solid white;
+  }
+
+  .card {
+    margin: 2rem 0;
+  }
+
+  .whatsapp {
+    background-color: #08a88a;
+    border-radius: 5px;
+    padding: 0.5rem 2rem;
+    color: black;
+    font-weight: bold;
+  }
+
+  .profileMenu {
+    color: var(--fourthColor);
+    background-color: white;
+    position: absolute;
+    width: 100%;
+    top: 65vh;
+    left: 0;
+    z-index: 10;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  }
+  
+  .profileMenu a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+    padding: 2rem 0;
+    text-decoration: none;
+    color: var(--primaryColor);
+  }
+  
+  .logout-link {
+    background-color: red;
+    font-weight: bold;
+    color: black;
+  }
+  
+  .logoutMobile {
+    display: none;
+    background-color: red;
+    color: black;
+  }
+
+  /* FOOTER STYLING */
+  .footer {
+    padding: 2rem 0;
+    background-color: black;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+  }
+
+  .footerLeft {
+    text-align: center;
+    padding: 0;
+    width: 100%;
+    margin: 1rem 0;
+  }
+
+  .footerRight {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem 0;
+    text-align: center;
+  }
+
+  .mapfooter {
+    width: 100%;
+    margin: 1rem 0;
+  }
+
+  .footerdet {
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+  }
+
+  .extrasFooter {
+    display: inline;
+    width: 40%;
+  }
+
+  .socials {
+    display: inline;
+    width: 40%;
+
+  }
+
+  .mapFooter iframe {
+    width: 100%;
+    height: 15rem;
+  }
+}

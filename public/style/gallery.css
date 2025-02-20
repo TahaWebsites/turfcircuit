@@ -1,0 +1,637 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Radio+Canada+Big:ital,wght@0,400..700;1,400..700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  background: var(--primaryColor);
+  color: var(--fourthColor);
+}
+
+.cross {
+  display: none;
+  border: none;
+}
+
+.burger {
+  display: none;
+}
+
+.red {
+  color: var(--secondaryColor);
+}
+
+/* Navbar Styling */
+
+.title {
+  display: flex;
+  align-items: center;
+}
+
+.navbar {
+  width: 100%;
+  height: 10vh;
+  padding: 0 1.5rem;
+  color: var(--fourthColor);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navlinks {
+  display: flex;
+  height: 100%;
+  width: 60%;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.navlinks a {
+  height: 100%;
+  width: 100%;
+  /* margin: 0 1rem; */
+  text-decoration: none;
+  padding: 0rem;
+  color: var(--fourthColor);
+}
+
+.navlinks a :hover {
+  border-bottom: 5px solid var(--secondaryColor);
+  /* background-color: rgba(255, 255, 255, 0.13); */
+}
+
+.navlinks li {
+  list-style: none;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profileMenu {
+  color: var(--fourthColor);
+  background-color: var(--secondaryColor);
+  position: absolute;
+  top: 10vh;
+  right: 0;
+  width: 12rem;
+  display: none;
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.profileMenu a {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 0.5rem 0;
+  text-decoration: none;
+  color: var(--fourthColor);
+}
+
+.logout-link {
+  background-color: red;
+  font-weight: bold;
+  color: black;
+}
+
+.profileMenu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.profileIcon:hover .profileMenu {
+  display: initial;
+}
+
+/* MAIN STYLING */
+.main {
+  min-height: 100vh;
+  width: 100%;
+  padding: 1rem 3rem;
+}
+
+.playweek {
+  width: 100%;
+  background-color: var(--primaryColor);
+}
+
+.playweek h2 {
+  color: var(--secondaryColor);
+  margin: 0 0 1.5rem 0;
+}
+
+.playweek iframe {
+  width: 100%;
+  height: 70vh;  
+  margin: 0 0 5rem 0;
+}
+
+.playerPfp {
+  width: 3rem;
+  border-radius: 100%;
+  margin-right: 1rem;
+}
+
+.clipdetails {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 0 5rem 0;
+}
+
+.stat1 {
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+
+.stat2 {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.owner a {
+  color: var(--secondaryColor);
+}
+
+/* search styling */
+.searchVideo {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.searchVideo input {
+  width: 50%;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  border-bottom: 3px solid var(--thirdColor);
+  color: var(--fourthColor);
+  padding: 0.5rem;
+  margin: 0 1rem;
+  font-weight: bold;
+  transition: all ease-in 0.5s;
+}
+
+/* SUGGESTIONS STYLING */
+.suggestions {
+  margin: 5rem 0;
+  color: var(--fourthColor);
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.suggestedVideoContainer {
+  width: 22%;
+  margin: 0.5rem 1rem;
+}
+
+.thumbnail {
+  width: 100%;
+}
+
+.thumbnail img {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.details {
+  width: 100%;
+}
+
+.details h3,
+.details p {
+  width: 100%;
+}
+
+/* VIDEO PLAYER STYLING */
+.videoPlayer {
+  display: none;
+  position: fixed;
+  top: 0;
+  z-index: 99;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.videoExternalContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.videoExternalContainer iframe {
+  width: 50%;
+  height: 50%;
+}
+
+.videoPlayer a {
+  color: var(--thirdColor);
+  cursor: pointer;
+}
+
+/* FOOTER STYLING */
+
+
+.profileMenu {
+  color: var(--fourthColor);
+  background-color: var(--secondaryColor);
+  position: absolute;
+  top: 10vh;
+  right: 0;
+  width: 12rem;
+  display: none;
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.profileMenu a {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 0.5rem 0;
+  text-decoration: none;
+  color: var(--fourthColor);
+}
+
+.logout-link {
+  background-color: red;
+  font-weight: bold;
+  color: black;
+}
+
+.profileMenu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.profileIcon:hover .profileMenu {
+  display: initial;
+}
+
+/* FOOTER STYLING */
+
+.footer {
+  padding: 2rem;
+  background-color: black;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: white;
+}
+
+.footerRight {
+  display: flex;
+  min-width: 50%;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.footerLeft {
+  padding: 0 2rem;
+}
+
+.mapFooter iframe {
+  width: 25rem;
+  height: 15rem;
+}
+
+.errMsg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  text-align: center;
+  color: red;
+  display: none;
+}
+@media only screen and (max-width: 1000px) { 
+  body {
+    width: 100%;
+    height: 100vh;
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+  }
+
+  .red {
+    color: var(--secondaryColor);
+  }
+
+  /* navlink styling */
+  .navlinks a :hover {
+    background-color: initial;
+    border: initial;
+    color: initial;
+  }
+
+  .burger {
+    display: initial;
+  }
+
+  .cross {
+    display: initial;
+    border: none;
+  }
+
+  .navlinks {
+    position: absolute;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--primaryColor);
+    color: var(--fourthColor);
+    justify-content: space-around;
+    align-items: center;
+    transform: translateX(-100%);
+  }
+
+  .navlinks a {
+    height: 0;
+    width: 100%;
+    text-decoration: none;
+    padding: 0;
+    color: var(--fourthColor);
+  }
+
+  .navlinks li {
+    list-style: none;
+    height: 0%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .bar {
+    width: 20px;
+    height: 3px;
+    background-color: var(--fourthColor);
+    margin: 3px 0;
+  }
+
+  .toggler {
+    transform: translateX(0%);
+    border: none;
+  }
+
+  .cross {
+    position: relative;
+    left: 20%;
+    text-align: right;
+    border: none;
+  }
+
+  /* main styling  */
+  .main {
+    min-height: 100vh;
+    width: 100%;
+    padding: 1rem;
+  }
+  
+  .playweek {
+    width: 100%;
+    background-color: var(--primaryColor);
+  }
+  
+  .playweek h2 {
+    color: var(--secondaryColor);
+    margin: 0 0 1.5rem 0;
+  }
+  
+  .playweek iframe {
+    width: 100%;
+    height: 25vh;
+  }
+  
+  .playerPfp {
+    width: 3rem;
+    border-radius: 100%;
+    margin-right: 1rem;
+  }
+  
+  .clipdetails {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0 5rem 0;
+  }
+  
+  .stat1 {
+    display: flex;
+    width: 100%;
+    align-items: center;
+  }
+  
+  .stat2 {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-around;
+    display: none;
+  }
+  
+  .owner a {
+    color: var(--secondaryColor);
+  }
+  
+  /* search styling */
+  .searchVideo {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .searchVideo input {
+    width: 90%;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    border-bottom: 3px solid var(--thirdColor);
+    color: var(--thirdColor);
+    padding: 0.5rem;
+    margin: 0 1rem;
+    transition: all ease-in 0.5s;
+  }
+  
+  /* SUGGESTIONS STYLING */
+  .suggestions {
+    margin: 5rem 0;
+    color: var(--fourthColor);
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .suggestedVideoContainer {
+    width: 100%;
+    margin: 0.5rem 1rem;
+  }
+  
+  .thumbnail {
+    width: 100%;
+  }
+  
+  .thumbnail img {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .details {
+    width: 100%;
+  }
+  
+  .details h3,
+  .details p {
+    width: 100%;
+  }
+  
+  /* VIDEO PLAYER STYLING */
+  .videoPlayer {
+    display: none;
+    position: fixed;
+    top: 0;
+    z-index: 99;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.9);
+  }
+  
+  .videoExternalContainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .videoExternalContainer iframe {
+    width: 90%;
+    height: 30%;
+  }
+  
+  .videoPlayer a {
+    color: var(--thirdColor);
+    cursor: pointer;
+  }
+
+  .profileMenu {
+    color: var(--fourthColor);
+    background-color: white;
+    position: absolute;
+    width: 100%;
+    top: 65vh;
+    left: 0;
+    z-index: 10;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  }
+  
+  .profileMenu a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+    padding: 2rem 0;
+    text-decoration: none;
+    color: var(--primaryColor);
+  }
+  
+  .logout-link {
+    background-color: red;
+    font-weight: bold;
+    color: black;
+  }
+  
+  .logoutMobile {
+    display: none;
+    background-color: red;
+    color: black;
+  }
+  
+
+  /* FOOTER STYLING */
+  .footer {
+    padding: 2rem 0;
+    background-color: black;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+  }
+
+  .footerLeft {
+    text-align: center;
+    padding: 0;
+    width: 100%;
+    margin: 1rem 0;
+  }
+
+  .footerRight {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+    margin: 2rem 0;
+    text-align: center;
+  }
+
+  .mapfooter {
+    width: 100%;
+    margin: 1rem 0;
+  }
+
+  .extrasFooter {
+    display: inline;
+    width: 40%;
+  }
+  .socials {
+    display: inline;
+    width: 40%;
+  }
+
+  .mapFooter iframe {
+    width: 100%;
+    height: 15rem;
+  }
+}

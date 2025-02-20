@@ -1,0 +1,112 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+}
+
+.imageContainer {
+    width: 60%;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.imageContainer img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    filter: blur(0.5px);
+    border: none;
+    outline: none;
+}
+
+.loginForm {
+    background-color: black;
+    color: #2EFF0A;
+    width: 40%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.loginForm form {
+    width: 70%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+input {
+    width: 100%;
+}
+
+h3, input, button, p {
+    margin: 1rem 0;
+}
+
+input {
+    background-color: transparent;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid gray;
+    padding: 1rem;
+    color: white;
+}
+
+button {
+    width: 100%;
+    padding: 1rem;
+    text-align: center;
+    background-color: transparent;
+    border: 1px solid #2EFF0A;
+    color: white;
+}
+
+button:hover {
+    background-color: #2EFF0A;
+    color: black;
+}
+
+.loginByLine, .loginByLine2 {
+    color: white;
+    text-align: center;
+}
+
+.errorDiv {
+    color: red;
+    width: 100%;
+    text-align: left;
+    font-weight: bold;
+}
+
+@media only screen and (max-width: 1000px) {
+    .imageContainer {
+            width: 100%;
+    }
+
+    .loginForm {
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.75);
+    }
+
+    input {
+        border-bottom: 1px solid white;
+    }
+
+    input::placeholder {
+        color: white;
+    }
+}

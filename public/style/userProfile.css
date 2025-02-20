@@ -1,0 +1,597 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Radio+Canada+Big:ital,wght@0,400..700;1,400..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Caladea&family=Lato&family=Oswald:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Caladea&family=Oswald:wght@500&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    background-color: var(--primaryColor);
+    color: var(--fourthColor);
+}
+
+.cross {
+    display: none;
+    border: none;
+}
+
+.burger {
+    display: none;
+}
+
+.bg {
+    width: 100%;
+    position: fixed;
+    z-index: -99;
+}
+
+.bgvid {
+    width: 100%;
+}
+
+.blur-bg {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: -9;
+}
+
+.red {
+    color: var(--secondaryColor);
+}
+
+/* Navbar Styling */
+
+.title {
+    display: flex;
+    align-items: center;
+}
+
+.navbar {
+    width: 100%;
+    height: 10vh;
+    padding: 0 1.5rem;
+    background-color: var(--primaryColor);
+    color: var(--fourthColor);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navlinks {
+    display: flex;
+    height: 100%;
+    width: 55%;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.navlinks a {
+    height: 100%;
+    width: 100%;
+    /* margin: 0 1rem; */
+    text-decoration: none;
+    padding: 0rem;
+    color: var(--fourthColor);
+}
+
+.navlinks a :hover {
+    border-bottom: 5px solid var(--secondaryColor);
+    /* background-color: rgba(255, 255, 255, 0.13); */
+}
+
+.navlinks li {
+    list-style: none;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profileMenu {
+    color: var(--fourthColor);
+    background-color: var(--secondaryColor);
+    position: absolute;
+    top: 10vh;
+    right: 0;
+    width: 12rem;
+    display: none;
+    z-index: 10;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.profileMenu a {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 0.5rem 0;
+    text-decoration: none;
+    color: var(--fourthColor);
+}
+
+.logout-link {
+    background-color: red;
+    font-weight: bold;
+    color: black;
+}
+
+.profileMenu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.profileIcon:hover .profileMenu {
+    display: initial;
+}
+
+
+/* main styling */
+
+.mainWrapper {
+    min-height: 100vh;
+}
+
+.search {
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search input {
+    width: 50%;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    border-bottom: 3px solid gray;
+    padding: 1rem;
+    color: var(--fourthColor);
+}
+
+.profilesContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 5rem;
+    gap: 2rem;
+}
+
+.profilesContainer a {
+    color: var(--fourthColor);
+    max-width: 100%;
+    width: 45%;
+}
+
+.profile img {
+    width: 10rem;
+}
+
+.profile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem;
+    background-color: var(--secondaryColor);
+    border-radius: 1rem;
+    box-shadow: 5px 5px 10px rgba(255, 255, 255, 0.4);
+    /* max-height: 17.5rem; */
+}
+
+.profileDetails {
+    flex: 1;
+}
+
+
+.profileDetails p {
+    display: block;
+    max-width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 50ch;
+    margin: 0.5rem 0;
+    font-weight: 400;
+}
+
+.profileDetailsinner {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.logoutMobile {
+    display: none;
+}
+
+.weekPlayersContainer {
+    width: 100%;
+    padding: 5rem;
+}
+
+.weekPlayers {
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    border-radius: 0.5rem;
+    padding: 5rem 2rem;
+    color: black;
+    display: flex;
+    justify-content: space-around;
+}
+
+.playerMonth {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.playerMonth img {
+    width: 100px;
+    height: 100px;
+}
+
+.playerTag {
+    color: #08a88a;
+}
+
+.playerName {
+    text-transform: uppercase;
+    margin: 5px 0;
+}
+
+.playerSlider {
+    display: flex;
+    width: 100%;
+}
+
+
+
+.footer {
+    padding: 2rem;
+    margin: 3rem 0 0 0;
+    background-color: black;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: white;
+}
+
+.footer a {
+    color: white;
+}
+
+.footerRight {
+    display: flex;
+    flex-direction: column;
+    min-width: 50%;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.footerLeft {
+    padding: 0 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.mapFooter iframe {
+    width: 25rem;
+    height: 15rem;
+}
+
+.footerdet {
+    display: flex;
+    justify-content: center;
+    align-items: left;
+    text-align: left;
+    width: 100%;
+    text-align: left;
+    padding: 0 2rem;
+    margin: 0.5rem 0;
+}
+
+.floordetSocials {
+    justify-content: center;
+    align-items: center;
+    margin: 2rem 0;
+}
+
+.lord-iconSocials {
+    margin: 0 1rem;
+}
+
+.lord-icon {
+    margin: 0 1rem 0 0;
+}
+
+.socials ul li {
+    color: white;
+}
+
+.matchNotFound {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: red;
+    font-weight: bold;
+}
+
+.matchNotFound {
+    display: none;
+}
+
+@media only screen and (max-width: 1000px) { 
+
+    /* navlink styling */
+    .navlinks a :hover {
+        background-color: initial;
+        border: initial;
+        color: initial;
+    }
+
+    .burger {
+        display: initial;
+    }
+
+    .cross {
+        display: initial;
+        border: none;
+    }
+
+    .navlinks {
+        position: absolute;
+        position: fixed;
+        left: 0;
+        top: 0;
+        height: 100vh;
+        width: 75%;
+        display: flex;
+        flex-direction: column;
+        background-color: var(--primaryColor);
+        color: var(--fourthColor);
+        justify-content: space-around;
+        align-items: center;
+        transform: translateX(-100%);
+        z-index: 9;
+    }
+
+    .navlinks a {
+        height: 0;
+        width: 100%;
+        text-decoration: none;
+        padding: 0;
+        color: var(--fourthColor);
+    }
+
+    .navlinks li {
+        list-style: none;
+        height: 0%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .bar {
+        width: 20px;
+        height: 3px;
+        background-color: var(--fourthColor);
+        margin: 3px 0;
+    }
+
+    .toggler {
+        transform: translateX(0%);
+        border: none;
+    }
+
+    .cross {
+        position: relative;
+        left: 20%;
+        text-align: right;
+        border: none;
+    }
+
+    /* Main Styling */
+
+    .search {
+        padding: 0 3rem;
+        margin: 2rem 0;
+    }
+
+    .search input {
+        width: 100%;
+
+    }
+
+    .profilesContainer {
+        /* padding: 0 3rem; */
+        flex-direction: column;
+        padding: 0 2rem;
+    }
+
+    .profilesContainer a {
+        width: 100%;
+    }
+
+    .profile {
+        width: 100%;
+        height: auto;
+        padding: 0.5rem;
+        flex-direction: column;
+    }
+
+    .profileDetails {
+        width: 100%;
+        padding: 0 1rem;
+    }
+
+    .weekPlayersContainer {
+        padding: 2rem;
+    }
+
+    .weekPlayers {
+        width: 100%;
+        height: 100%;
+        background-color: white;
+        border-radius: 0.5rem;
+        color: black;
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .playerMonth {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .playerMonth img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .playerTag {
+        color: var(--primaryColor);
+    }
+
+    .playerName {
+        text-transform: uppercase;
+        margin: 5px 0;
+    }
+
+    .playerSlider {
+        display: flex;
+        width: 100%;
+    }
+
+    .playerMonth {
+        display: none;
+    }
+
+    .profileMenu {
+        color: var(--fourthColor);
+        background-color: white;
+        position: absolute;
+        width: 100%;
+        top: 65vh;
+        left: 0;
+        z-index: 10;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    .profileMenu a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        text-align: center;
+        padding: 2rem 0;
+        text-decoration: none;
+        color: var(--primaryColor);
+    }
+
+    .logout-link {
+        background-color: red;
+        font-weight: bold;
+        color: black;
+    }
+
+    .logoutMobile {
+        display: none;
+        background-color: red;
+        color: black;
+    }
+
+    /* FOOTER STYLING */
+    .footer {
+        padding: 2rem 0;
+        background-color: black;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        color: white;
+    }
+
+    .footerLeft {
+        text-align: center;
+        padding: 0;
+        width: 100%;
+        margin: 1rem 0;
+    }
+
+    .footerRight {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        margin: 2rem 0;
+        text-align: center;
+    }
+
+    .mapfooter {
+        width: 100%;
+        margin: 1rem 0;
+    }
+
+    .footerdet {
+        justify-content: center;
+        align-items: center;
+        text-align: left;
+    }
+
+    .extrasFooter {
+        display: inline;
+        width: 40%;
+    }
+
+    .socials {
+        display: inline;
+        width: 40%;
+
+    }
+
+    .mapFooter iframe {
+        width: 100%;
+        height: 15rem;
+    }
+
+    .matchNotFound {
+        display: none;
+    }
+}

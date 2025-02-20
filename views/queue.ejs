@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.lordicon.com/lordicon.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="/style/rootcss.css" />
+  <link rel="stylesheet" href="/style/queue.css" />
+  <title>TurfCircuit | Match Queues</title>
+</head>
+
+<body>
+  <!-- Navbar Code  -->
+  <div class="navbar">
+    <div class="burger">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+    <h2 class="title">
+      <lord-icon src="https://cdn.lordicon.com/bjxtqill.json" trigger="hover" colors="primary:#08a88a,secondary:#08a88a"
+        style="width:50px;height:50px">
+      </lord-icon>Turf<span class="red">Circuit</span>
+    </h2>
+
+    <ul class="navlinks" style="z-index: 999;">
+      <a href="#" class="cross">
+        <li class="cross">X</li>
+      </a>
+      <a href="/index">
+        <li>Home</li>
+      </a>
+      <a href="/queue" target="_blank">
+        <li>Match Queues</li>
+      </a>
+      <a href="/gallery">
+        <li>Gallery</li>
+      </a>
+      <a href="/aboutus">
+        <li>About US</li>
+      </a>
+      <a href="/contactUs">
+        <li>Contact US</li>
+      </a>
+      <li class="profileIcon" style="display: flex; justify-content: center; align-items: center;">
+        <lord-icon src="https://cdn.lordicon.com/kdduutaw.json" trigger="hover"
+          colors="primary:#08a88a,secondary:#08a88a" style="width:40px;height:40px"></lord-icon>
+        <div class="profileMenu">
+          <ul>
+            <li><a href="/profile">
+                <%= currentUser ? 'My Profile' : 'Login/Signup' %>
+              </a></li>
+            <li><a href="/players">Players</a></li>
+            <% if(currentUser) { %>
+              <li><a href="/logout" class="logout-link">Log Out</a></li>
+              <% } %>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Landing Section -->
+  <div class="landingPage">
+    <!-- MATCH QUEUE CONTAINER  -->
+    <h1 class="heading1">MATCH QUEUES</h1>
+
+    <!-- Database wala -->
+    <div class="city">
+      <div class="cityStats">
+        <div class="cityName">
+          <p>HYDERABAD</p>
+        </div>
+      </div>
+
+
+      <% db.filter(elem=> elem.gameType === "competitive").slice(-3).forEach(elem => { %>
+        <% if(elem.gameType==="competitive" ) { %>
+          <div class="competitive">
+            <div class="firstLayer basic">
+              <a href="<%= elem.groundLocation %>" target="_blank">
+                <%= elem.groundName %>
+              </a>
+              <p class="competitive-red">COMPETITIVE</p>
+            </div>
+            <div class="secondLayer gameDetails">
+              <div class="firstHalf">
+                <p>Price: <%= elem.price %>/-</p>
+                <p>No. of Players: <%= elem.PlayersLen %>
+                </p>
+                <p>Open Spots: <%= elem.PlayersLen - elem.playersJoined.length %>
+                </p>
+              </div>
+              <div class="secondHalf">
+                <p>Date: <%= elem.Date %>
+                </p>
+                <p>Game Group: <a style="color: var(--primaryColor);" href="http://chat.whatsapp.com/LnegVafPerO560ZiW65rSW">Join Group</a></p>
+              </div>
+            </div>
+
+            <% if(elem.PlayersLen - elem.playersJoined.length> 0) { %>
+              <% if(currentUser) {%>
+                <a href="#" class="join" data-id="<%= elem._id %>" data-amount="<%= elem.price %>">JOIN GAME</a>
+                <% } %>
+                  <%if(!currentUser) { %>
+                    <a href="/login" class="join" data-id="<%= elem._id %>" data-amount="<%= elem.price %>">JOIN
+                      GAME</a>
+                    <% } %>
+                      <% } else { %>
+                        <p>All Spots Filled</p>
+                        <% } %>
+
+                          <div class="thirdLayer reserved">
+                            <p>Reserved Players</p>
+                            <div class="players">
+                              <% elem.playersJoined.forEach(player=> { %>
+                                <div class="player">
+                                  <img class="playerPfp"
+                                    src="https://img.uefa.com/imgml/TP/players/1/2025/cutoff/250052469.webp" alt="" />
+                                  <p class="playerName">
+                                    <%= player.playerName %>
+                                  </p>
+                                </div>
+                                <% }) %>
+                            </div>
+                          </div>
+          </div>
+          <% } %>
+            <% }) %>
+
+              <% db.filter(elem=> elem.gameType === "friendly").slice(-3).forEach(elem => { %>
+                <% if(elem.gameType==="friendly" ) { %>
+                  <div class="friendlyGame">
+                    <div class="firstLayer basic">
+                      <a href="<%= elem.groundLocation %>" target="_blank">
+                        <%= elem.groundName %>
+                      </a>
+                      <p class="friendly">Friendly</p>
+                    </div>
+                    <div class="secondLayer gameDetails">
+                      <div class="firstHalf">
+                        <p>Price: <%= elem.price %>/-</p>
+                        <p>No. of Players: <%= elem.PlayersLen %>
+                        </p>
+                        <p>Open Spots: <%= elem.PlayersLen - elem.playersJoined.length %>
+                        </p>
+                      </div>
+                      <div class="secondHalf">
+                        <p>Date: <%= elem.Date %>
+                        </p>
+                        <p>Game Group: <a href="http://chat.whatsapp.com/LnegVafPerO560ZiW65rSW">Join Group</a></p>
+                      </div>
+                    </div>
+
+                    <% if(elem.PlayersLen - elem.playersJoined.length> 0) { %>
+                      <% if(currentUser) {%>
+                        <a href="#" class="join" data-id="<%= elem._id %>" data-amount="<%= elem.price %>">JOIN GAME</a>
+                        <% } %>
+                          <%if(!currentUser) { %>
+                            <a href="/login" class="join" data-id="<%= elem._id %>" data-amount="<%= elem.price %>">JOIN
+                              GAME</a>
+                            <% } %>
+                              <% } else { %>
+                                <p>All Spots Filled</p>
+                                <% } %>
+
+                                  <div class="thirdLayer reserved">
+                                    <p>Reserved Players</p>
+                                    <div class="players">
+                                      <% elem.playersJoined.forEach(player=> { %>
+                                        <div class="player">
+                                          <img class="playerPfp"
+                                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1gptEOLWU_ZFZQGMwF_EzTYAvGmeerm5aqZJG9hnWAA&s"
+                                            alt="" />
+                                          <p class="playerName">
+                                            <%= player.playerName %>
+                                          </p>
+                                        </div>
+                                        <% }) %>
+                                    </div>
+                                  </div>
+                  </div>
+                  <% } %>
+                    <% }) %>
+    </div>
+
+  </div>
+
+  <!-- Footer  -->
+  <div class="footer">
+    <div class="footerLeft">
+      <lord-icon src="https://cdn.lordicon.com/bjxtqill.json" trigger="hover" style="width:50px;height:50px">
+      </lord-icon>
+      <h3> TurfCircuit</h3>
+    </div>
+    <div class="footerRight">
+      
+
+      <div class="footerdet"><lord-icon class="lord-icon" src="https://cdn.lordicon.com/onmwuuox.json" trigger="hover"
+          stroke="bold" colors="primary:#ffffff,secondary:#08a88a" style="width:30px;height:30px">
+        </lord-icon>
+        <p>Mehdipatnam, Hyderabad, India - 500028</p>
+      </div>
+      <div class="footerdet">
+        <lord-icon class="lord-icon" src="https://cdn.lordicon.com/vpbspaec.json" trigger="hover" stroke="bold"
+          colors="primary:#ffffff,secondary:#08a88a" style="width:30px;height:30px">
+        </lord-icon>
+        <p>masoodakataha@gmail.com</p>
+      </div>
+      <div class="footerdet">
+        <lord-icon class="lord-icon" src="https://cdn.lordicon.com/kdduutaw.json" trigger="hover" stroke="bold"
+          colors="primary:#ffffff,secondary:#08a88a" style="width:30px;height:30px">
+        </lord-icon>
+        <p>+91 - 9381354038</p>
+      </div>
+      <div class="footerdet floordetSocials">
+        <a href="http://www.facebook.com">
+          <lord-icon class="lord-iconSocials" src="https://cdn.lordicon.com/bfoumeno.json" trigger="hover" stroke="bold"
+            colors="primary:#ffffff,secondary:#08a88a" style="width:30px;height:30px">
+          </lord-icon>
+        </a>
+        <a href="http://www.instagram.com">
+          <lord-icon class="lord-iconSocials" src="https://cdn.lordicon.com/tgyvxauj.json" trigger="hover" stroke="bold"
+            colors="primary:#ffffff,secondary:#08a88a" style="width:30px;height:30px">
+          </lord-icon>
+        </a>
+        <a href="http://www.twitter.com">
+          <lord-icon class="lord-iconSocials" src="https://cdn.lordicon.com/yizwahhw.json" trigger="hover" stroke="bold"
+            colors="primary:#ffffff,secondary:#08a88a" style="width:30px;height:30px">
+          </lord-icon>
+        </a>
+        <a href="http://chat.whatsapp.com/LnegVafPerO560ZiW65rSW">
+          <lord-icon class="lord-iconSocials" src="https://cdn.lordicon.com/dnphlhar.json" trigger="hover" stroke="bold"
+            colors="primary:#ffffff,secondary:#08a88a" style="width:30px;height:30px">
+          </lord-icon>
+        </a>
+        <a href="http://www.github.com">
+          <lord-icon class="lord-iconSocials" src="https://cdn.lordicon.com/yvjimpju.json" trigger="hover" stroke="bold"
+            colors="primary:#ffffff,secondary:#08a88a" style="width:30px;height:30px">
+          </lord-icon>
+        </a>
+      </div>
+
+
+    </div>
+    <div class="mapFooter">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3807.3490648085153!2d78.4305894744685!3d17.395028083493436!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb97230b9f66fd%3A0xee0a1cdef20c04bf!2sCrank%20gym!5e0!3m2!1sen!2sin!4v1698232238080!5m2!1sen!2sin"
+        width="600" height="450" style="border: 0" allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
+
+  <div class="devInfoParentDiv">
+    <div class="developerInfo">
+      <p>Developed by Mohammed Masooduddin Siddiqui</p>
+      <p>© 2025 All Rights Reserved</p>
+      <p>mailto: <a href="mailto:masoodakataha@gmail.com" target="_blank">masoodakataha@gmail.com</a></p>
+      <p><a href="https://www.linkedin.com/in/masood059" target="_blank">Follow me on LinkedIn</a></p>
+      <p>Version: 1.0.0.0</p>
+      <p><a href="#" style="text-decoration: underline;">Download</a> our app for smoother experience (Android only)</p>
+      <p>Built using Node.js, Express, Mongodb, Ejs.</p>
+      <a class="devInfoExit">Exit</a>
+    </div>
+  </div>
+
+
+  <div class="Copyright">
+    © Copyright • TurfCircuit • 2025 • <lord-icon src="https://cdn.lordicon.com/ailnzwyn.json" trigger="hover" style="width:30px;height:30px"></lord-icon>
+  </div>
+
+  <div class="gameForm">
+    <div class="gameFormContainer">
+      <form action="/joinGame" method="post">
+        <div class="formElement">
+          <p>Game ID: </p>
+          <input type="text" class="gameId" name="gameId" readonly>
+        </div>
+        <div class="formElement">
+          <p>Amount: </p>
+          <input type="text" class="amount" name="amount" readonly>
+        </div>
+        <div class="formElement">
+          <p>Name: </p>
+          <input type="text" name="playerName" id="playerName" required>
+        </div>
+        <div class="formElement">
+          <p>Phone Number: </p>
+          <input type="number" name="playerContact" id="playerContact" required>
+        </div>
+        <button type="submit" id="pay-now-btn">Pay Now</button>
+        <button type="submit" class="joingameBTN">Pay Later & Join</button>
+        <button type="reset" class="closeGameForm">Cancel</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="/js/nav.js"></script>
+  <script src="/js/common.js"></script>
+  <script>
+    document.querySelector('.joingameBTN').addEventListener('click', (e) => {
+      e.preventDefault();
+      if (document.querySelector('#playerContact').value.length != 10) {
+        alert('Invalid Contact Number');
+      }
+      else {
+
+        document.querySelector('.gameFormContainer form').submit();
+      }
+    });
+    let proceed = true;
+    document.querySelector('#pay-now-btn').addEventListener('click', (e) => {
+      e.preventDefault();
+      if (document.querySelector('#playerContact').value.length != 10) {
+        alert('Invalid Contact Number');
+        proceed = false;
+      }
+    });
+
+    let gameForm = document.querySelector('.gameForm');
+    let closeGameForm = document.querySelector('.closeGameForm');
+    let joinGame = document.querySelectorAll('.join');
+
+
+
+    document.querySelectorAll('.competitive').forEach(game => {
+      game.addEventListener('click', () => {
+        game.querySelector('.thirdLayer').classList.toggle('showThirdLayer');
+      })
+    })
+
+    document.querySelectorAll('.friendlyGame').forEach(game => {
+      game.addEventListener('click', () => {
+        game.querySelector('.thirdLayer').classList.toggle('showThirdLayer');
+      })
+    })
+
+    closeGameForm.addEventListener('click', () => {
+      gameForm.style.display = "none";
+    })
+
+    joinGame.forEach((joinBtn) => {
+      joinBtn.addEventListener('click', () => {
+        document.querySelector('.gameId').value = joinBtn.dataset.id;
+        document.querySelector('.amount').value = joinBtn.dataset.amount;
+        gameForm.style.display = "flex";
+      })
+    });
+
+    document.getElementById("pay-now-btn").addEventListener("click", async (e) => {
+      if (proceed) {
+        e.preventDefault();
+
+        try {
+          // Step 1: Request an order from the backend
+          const response = await fetch("/create-order", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ amount: document.querySelector('.amount').value, currency: "INR" }) // Modify amount as needed
+          });
+
+          const order = await response.json();
+
+          if (!order.id) {
+            alert("Failed to create order.");
+            return;
+          }
+
+          // Step 2: Open Razorpay Checkout
+          const options = {
+            key: "<%= apikey %>", // Replace with your actual Razorpay Key ID
+            amount: order.amount,
+            currency: order.currency,
+            order_id: order.id,
+            name: "TurfCircuit",
+            description: "Match Payment",
+            theme: { color: "#3399cc" },
+            handler: async function (response) {
+              // Step 3: Verify Payment
+              const verifyRes = await fetch("/verify-payment", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(response)
+              });
+
+              const verifyData = await verifyRes.json();
+
+              if (verifyData.status === "ok") {
+                console.log('Payment successful');
+
+                // Manually trigger form submission after payment verification
+                const form = document.querySelector('.gameFormContainer form');
+                if (form) {
+                  form.submit(); // Submit the form after payment verification
+                  console.log('Form submitted');
+                } else {
+                  console.log('Form not found');
+                }
+              } else {
+                alert("Payment verification failed.");
+              }
+            },
+            prefill: {
+              name: "Taha", // Can be dynamically filled
+              email: "masoodakataha@gmail.com",
+              contact: "9381354038"
+            }
+          };
+
+          const razorpay = new Razorpay(options);
+          razorpay.open(); // Open Razorpay Checkout
+        } catch (error) {
+          console.error("Error:", error);
+          alert("Payment initiation failed.");
+        }
+      }
+    });
+
+
+  </script>
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+</body>
+
+</html>

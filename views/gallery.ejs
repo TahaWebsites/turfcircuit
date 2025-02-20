@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.lordicon.com/lordicon.js"></script>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="/style/rootcss.css" />
+  <link rel="stylesheet" href="/style/gallery.css" />
+  <title>TurfCircuit | Gallery</title>
+</head>
+
+<body>
+  <div class="navbar">
+    <div class="burger">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+    <h2 class="title">
+       <lord-icon src="https://cdn.lordicon.com/bjxtqill.json" trigger="hover" colors="primary:#08a88a,secondary:#08a88a"
+        style="width:50px;height:50px">
+      </lord-icon>Turf<span class="red">Circuit</span>
+    </h2>
+    <ul class="navlinks">
+      <a href="#" class="cross">
+        <li class="cross">X</li>
+      </a>
+      <a href="/index" >
+        <li>Home</li>
+      </a>
+      <a href="/queue" target="_blank">
+        <li>Match Queues</li>
+      </a>
+      <a href="/gallery">
+        <li>Gallery</li>
+      </a>
+      <a href="/aboutus">
+        <li>About US</li>
+      </a>
+      <a href="/contactUs" >
+        <li>Contact US</li>
+      </a>
+      <li class="profileIcon" style="display: flex; justify-content: center; align-items: center;">
+        <lord-icon src="https://cdn.lordicon.com/kdduutaw.json" trigger="hover" colors="primary:#08a88a,secondary:#08a88a" style="width:40px;height:40px"></lord-icon>
+        <div class="profileMenu">
+          <ul>
+            <li><a href="/profile"><%= currentUser ? 'My Profile' : 'Login/Signup' %></a></li>
+            <li><a href="/players">Players</a></li>
+            <% if(currentUser) { %>
+            <li><a href="/logout" class="logout-link">Log Out</a></li>
+            <% } %>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="main">
+    <div class="playweek">
+      <h2>PLAY OF THE WEEK</h2>
+      <% db.forEach((potw)=> {%>
+        <% if(potw.potw===true) { %>
+          <iframe src="<%= potw.videoURL %>" frameborder="0" allowfullscreen></iframe>
+          <% } %>
+            <% }) %>
+    </div>
+
+    <div class="searchVideo">
+      <input type="text" placeholder="Search Videos">
+    </div>
+
+    <div class="suggestions">
+      <% db.forEach(function(vidDetail) { %>
+        <div class="suggestedVideoContainer">
+          <div class="thumbnail">
+            <img src="<%= vidDetail.thumbnail %>" alt="Video Thumbnail" />
+          </div>
+          <div class="details">
+            <h3>
+              <%= vidDetail.title %>
+            </h3>
+            <p>
+              <%= vidDetail.description %>
+            </p>
+            <p>
+              <%= vidDetail.videoTag %>
+            </p>
+          </div>
+        </div>
+        <% }) %>
+    </div>
+
+    <h3 class="errMsg">No Media Found</h3>
+  </div>
+
+  <div class="videoPlayer" style="display: none">
+    <div class="videoExternalContainer">
+      <iframe src="" frameborder="0" allowfullscreen></iframe>
+      <a id="closeButton">Close</a>
+    </div>
+  </div>
+
+  <script src="/js/galleryScript.js"></script>
+  <script src="/js/nav.js"></script>
+  <script src="/js/common.js"></script>
+</body>
+
+</html>
