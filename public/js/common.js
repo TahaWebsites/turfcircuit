@@ -1,3 +1,30 @@
+document.addEventListener("DOMContentLoaded", function () {
+  const defaultColors = {
+      primaryColor: "black",
+      secondaryColor: "#08a88a",
+      thirdColor: "rgba(8, 168, 138, 0.8)",
+      fourthColor: "white"
+  };
+
+  // Check if colors are already in localStorage, if not, set them
+  Object.keys(defaultColors).forEach((key) => {
+      if (!localStorage.getItem(key)) {
+          localStorage.setItem(key, defaultColors[key]);
+      }
+  });
+
+  // Apply colors from localStorage
+  applyThemeColors();
+});
+
+function applyThemeColors() {
+  document.documentElement.style.setProperty("--primaryColor", localStorage.getItem("primaryColor"));
+  document.documentElement.style.setProperty("--secondaryColor", localStorage.getItem("secondaryColor"));
+  document.documentElement.style.setProperty("--thirdColor", localStorage.getItem("thirdColor"));
+  document.documentElement.style.setProperty("--fourthColor", localStorage.getItem("fourthColor"));
+}
+
+
 const savedPrimaryColor = localStorage.getItem("primaryColor");
 const savedSecondaryColor = localStorage.getItem("secondaryColor");
 const savedThirdColor = localStorage.getItem("thirdColor");
